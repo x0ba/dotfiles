@@ -1,0 +1,21 @@
+{
+  imports = [
+    ./browsers.nix
+    ./colorscheme-sync.nix
+    ./discord.nix
+    ./fonts.nix
+    ./git.nix
+    ./gnome.nix
+    ./gpg.nix
+    ./gtk.nix
+    ./kubernetes.nix
+    ./media.nix
+    ./neovim.nix
+    ./rice.nix
+    ./sway.nix
+    ./vscode.nix
+    ./wezterm.nix
+    ./helix.nix
+    ./zsh.nix
+  ];
+}
