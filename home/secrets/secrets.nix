@@ -1,6 +1,6 @@
 let
   homes = {
-    fermata = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVnTGtM8OO5M9ldBsm2YigFcKiQHR250qa+X31Rrrm1";
+    fermata = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+Jn09z0d1pJZ34LfC/s5B4PF6Ohy76rZyKV5PDpkSv";
   };
   yubikeys = {
     _5c1 = "age1yubikey1qtl2qmcpwsuse7va9834n2uucyynjyvguzycwgwtfz7h0mjnf2fgypkdw6g";

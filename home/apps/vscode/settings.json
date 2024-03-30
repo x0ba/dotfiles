@@ -1,6 +1,6 @@
 // vim:ft=jsonc
 {
-  "catppuccin.accentColor": "lavender",
+  "catppuccin.accentColor": "mauve",
   "catppuccin.customUIColors": {
     "all": {
       "statusBar.foreground": "accent",
@@ -47,7 +47,6 @@
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
   "editor.fontFamily": "Fira Code, Symbols Nerd Font, monospace",
-  // "editor.fontFamily": "Cascadia Code, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'dlig', 'liga'",
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
@@ -66,7 +65,7 @@
   "githubPullRequests.pullBranch": "always",
   "ltex.additionalRules.enablePickyRules": true,
   "ltex.additionalRules.motherTongue": "de-AT",
-  "markdown.preview.fontFamily": "IBM Plex Sans, sans-serif",
+  "markdown.preview.fontFamily": "Fira Sans, sans-serif",
   "search.useGlobalIgnoreFiles": true,
   "search.useParentIgnoreFiles": true,
   "typescript.inlayHints.parameterNames.enabled": "all",

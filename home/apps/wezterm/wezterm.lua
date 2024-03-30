@@ -14,7 +14,7 @@ c.line_height = 1.1
 c.harfbuzz_features = { "calt=1", "dlig=1", "liga=1" }
 c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {
-  font = wezterm.font("IBM Plex Sans"),
+  font = wezterm.font("Fira Sans"),
   font_size = c.font_size,
 }
 

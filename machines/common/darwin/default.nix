@@ -4,6 +4,29 @@
   programs.zsh.enable = true;
 
   system.stateVersion = 4;
+  system.defaults = {
+    dock = {
+      autohide = true;
+      showhidden = true;
+      mru-spaces = false;
+    };
+    finder = {
+      AppleShowAllExtensions = true;
+      QuitMenuItem = true;
+      FXEnableExtensionChangeWarning = true;
+    };
+    NSGlobalDomain = {
+      AppleInterfaceStyle = "Dark";
+      AppleKeyboardUIMode = 3;
+      ApplePressAndHoldEnabled = false;
+      AppleFontSmoothing = 1;
+      _HIHideMenuBar = false;
+      InitialKeyRepeat = 10;
+      KeyRepeat = 1;
+      "com.apple.mouse.tapBehavior" = 1;
+      "com.apple.swipescrolldirection" = true;
+    };
+  };
 
   security.pam.enableSudoTouchIdAuth = true;
   system.defaults.alf.stealthenabled = 1;

@@ -1,8 +1,4 @@
 {config, ...}: let
-  noQuarantine = name: {
-    inherit name;
-    args.no_quarantine = true;
-  };
   skipSha = name: {
     inherit name;
     args.require_sha = false;
@@ -16,12 +12,12 @@ in {
     caskArgs.require_sha = true;
     casks = [
       "1password"
+      "aldente"
+      "appcleaner"
+      "bettertouchtool"
       "blender"
-      "brave-browser"
       "calibre"
-      (noQuarantine "easy-move-plus-resize")
-      (skipSha "hazeover")
-      (noQuarantine "hiddenbar")
+      "firefox"
       "iina"
       "jetbrains-toolbox"
       "karabiner-elements"
@@ -31,9 +27,7 @@ in {
       "mullvad-browser"
       "obs"
       "obsidian"
-      "raycast"
-      "rectangle"
-      "stats"
+      "shottr"
       (skipSha "spotify")
       "veracrypt"
       "wacom-tablet"
@@ -41,6 +35,7 @@ in {
       "zotero"
     ];
     onActivation = {
+      cleanup = "uninstall";
       autoUpdate = true;
       upgrade = true;
     };

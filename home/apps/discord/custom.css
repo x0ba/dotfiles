@@ -1,9 +1,9 @@
 @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
 
 :root {
-  --font-primary: "IBM Plex Sans", sans-serif;
-  --font-headline: "IBM Plex Sans", sans-serif;
-  --font-display: "IBM Plex Sans", sans-serif;
+  --font-primary: "Fira Sans", sans-serif;
+  --font-headline: "Fira Sans", sans-serif;
+  --font-display: "Fira Sans", sans-serif;
   --font-code: "Fira Code", "Symbols Nerd Font", mono;
 }
 
