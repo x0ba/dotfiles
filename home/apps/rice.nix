@@ -76,7 +76,7 @@ in {
     programs.rofi = lib.mkIf isLinux {
       enable = true;
       package = pkgs.rofi-wayland;
-      font = "Fira Sans 14";
+      font = "Geist 14";
       extraConfig.icon-theme = "Papirus-Dark";
       terminal = "wezterm";
       theme = ./rofi/theme.rasi;
@@ -87,7 +87,7 @@ in {
       package = pkgs.swaylock-effects;
       settings = {
         ignore-empty-password = false;
-        font = "Fira Sans";
+        font = "Geist";
         fade-in = "0.2";
         screenshots = true;
 

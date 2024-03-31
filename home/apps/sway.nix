@@ -7,7 +7,7 @@
   ...
 }: let
   fonts = {
-    names = ["Fira Sans" "Symbols Nerd Font"];
+    names = ["Geist" "Symbols Nerd Font"];
     size = 12.0;
   };
   ctp = {

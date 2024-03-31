@@ -27,7 +27,10 @@ in {
       "mullvad-browser"
       "obs"
       "obsidian"
+      "orion"
+      "raycast"
       "shottr"
+      "spaceid"
       (skipSha "spotify")
       "veracrypt"
       "wacom-tablet"

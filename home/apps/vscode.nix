@@ -17,6 +17,8 @@ in {
     extensions =
       (with pkgs.vscode-extensions; [
         # patches
+        ms-python.python
+        ms-python.vscode-pylance
         ms-vscode-remote.remote-ssh
         sumneko.lua
         # needs a pinned release
@@ -76,6 +78,7 @@ in {
         astro-build.astro-vscode
         bashmish.es6-string-css
         bradlc.vscode-tailwindcss
+        catppuccin.catppuccin-vsc-icons
         charliermarsh.ruff
         dbaeumer.vscode-eslint
         denoland.vscode-deno
@@ -91,6 +94,7 @@ in {
         graphql.vscode-graphql-syntax
         gruntfuggly.todo-tree
         jock.svg
+        leonardssh.vscord
         lunuan.kubernetes-templates
         mikestead.dotenv
         mkhl.direnv
@@ -101,7 +105,6 @@ in {
         ryanluker.vscode-coverage-gutters
         serayuzgur.crates
         tamasfe.even-better-toml
-        leonardssh.vscord
         tobermory.es6-string-html
         tomoki1207.pdf
         unifiedjs.vscode-mdx

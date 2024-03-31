@@ -5,7 +5,7 @@ local utils = require("config.utils")
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Fira Code",
+  "Geist Mono",
   "Symbols Nerd Font",
 })
 c.front_end = "WebGpu"
@@ -14,7 +14,7 @@ c.line_height = 1.1
 c.harfbuzz_features = { "calt=1", "dlig=1", "liga=1" }
 c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {
-  font = wezterm.font("Fira Sans"),
+  font = wezterm.font("Geist"),
   font_size = c.font_size,
 }
 

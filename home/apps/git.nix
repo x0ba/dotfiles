@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # use fsmonitor
   home.packages = [pkgs.rs-git-fsmonitor pkgs.watchman];
 

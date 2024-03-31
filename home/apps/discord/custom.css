@@ -1,19 +1,28 @@
 @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
 
 :root {
-  --font-primary: "Fira Sans", sans-serif;
-  --font-headline: "Fira Sans", sans-serif;
-  --font-display: "Fira Sans", sans-serif;
-  --font-code: "Fira Code", "Symbols Nerd Font", mono;
+  --font-primary: "Geist", sans-serif;
+  --font-headline: "Geist", sans-serif;
+  --font-display: "Geist", sans-serif;
+  --font-code: "Geist Mono", "Symbols Nerd Font", mono;
 }
 
 @media (max-width: 1024px) {
   nav[aria-label="Servers sidebar"] {
     display: none;
   }
-  .platform-osx div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"],
-  .platform-osx div[class^="base_"] > div[class^="content_"] > main[class^="container_"],
-  .platform-osx div[class^="base_"] > div[class^="content_"] > div[class^="chat_"] {
+  .platform-osx
+    div[class^="base_"]
+    > div[class^="content_"]
+    > div[class^="sidebar_"],
+  .platform-osx
+    div[class^="base_"]
+    > div[class^="content_"]
+    > main[class^="container_"],
+  .platform-osx
+    div[class^="base_"]
+    > div[class^="content_"]
+    > div[class^="chat_"] {
     padding-top: 32px !important;
   }
 }
