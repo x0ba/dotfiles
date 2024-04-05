@@ -1,6 +1,6 @@
 // vim:ft=jsonc
 {
-  "catppuccin.accentColor": "mauve",
+  "catppuccin.accentColor": "lavender",
   "catppuccin.customUIColors": {
     "all": {
       "statusBar.foreground": "accent",
@@ -45,11 +45,12 @@
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
-  "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Geist Mono, Symbols Nerd Font, monospace",
+  "terminal.integrated.fontSize": 15,
+  "editor.fontFamily": "Iosevka, Symbols Nerd Font, monospace",
+  // "workbench.fontAliasing": "auto",
   // "editor.fontFamily": "Cascadia Code, Symbols Nerd Font, monospace",
-  // "editor.fontLigatures": "'calt', 'ss01'",
-  "editor.fontSize": 14,
+  "editor.fontLigatures": "'calt', 'ss14'",
+  "editor.fontSize": 16,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.inlayHints.enabled": "onUnlessPressed",
@@ -66,7 +67,7 @@
   "githubPullRequests.pullBranch": "always",
   "ltex.additionalRules.enablePickyRules": true,
   "ltex.additionalRules.motherTongue": "de-AT",
-  "markdown.preview.fontFamily": "Geist, sans-serif",
+  "markdown.preview.fontFamily": "IBM Plex Sans, sans-serif",
   "search.useGlobalIgnoreFiles": true,
   "search.useParentIgnoreFiles": true,
   "typescript.inlayHints.parameterNames.enabled": "all",
@@ -78,7 +79,7 @@
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Catppuccin Latte",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.layoutControl.enabled": false,

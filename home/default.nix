@@ -28,7 +28,7 @@ in {
         nur.repos.nekowinston.icat
         nvd
         ranger
-        (ripgrep.override {withPCRE2 = true;})
+        ripgrep
         wakatime
         watchexec
       ]

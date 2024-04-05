@@ -76,7 +76,7 @@ in {
     programs.rofi = lib.mkIf isLinux {
       enable = true;
       package = pkgs.rofi-wayland;
-      font = "Geist 14";
+      font = "IBM Plex Sans 14";
       extraConfig.icon-theme = "Papirus-Dark";
       terminal = "wezterm";
       theme = ./rofi/theme.rasi;
@@ -87,7 +87,7 @@ in {
       package = pkgs.swaylock-effects;
       settings = {
         ignore-empty-password = false;
-        font = "Geist";
+        font = "IBM Plex Sans";
         fade-in = "0.2";
         screenshots = true;
 

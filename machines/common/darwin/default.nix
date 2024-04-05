@@ -16,7 +16,6 @@
       FXEnableExtensionChangeWarning = true;
     };
     NSGlobalDomain = {
-      AppleInterfaceStyle = "Dark";
       AppleKeyboardUIMode = 3;
       ApplePressAndHoldEnabled = false;
       AppleFontSmoothing = 1;

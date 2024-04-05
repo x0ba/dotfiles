@@ -9,8 +9,12 @@
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       fira-code
       ibm-plex
+      iosevka
       overpass
       geist-font
+      inter
+      martian-mono
+      monaspace
     ];
   };
 }
