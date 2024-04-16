@@ -10,56 +10,6 @@
       inherit (plugin) file src;
     })
     plugins);
-  overrides = {
-    mocha = {
-      rosewater = "#ece3e1";
-      flamingo = "#e1d2d2";
-      pink = "#ddccd8";
-      mauve = "#bbb2c9";
-      red = "#c4a2aa";
-      maroon = "#cbadb1";
-      peach = "#d5beb4";
-      yellow = "#ece3d3";
-      green = "#b9ddb6";
-      teal = "#badad4";
-      sky = "#b8d4db";
-      sapphire = "#a9c0ce";
-      blue = "#aab3c7";
-      lavender = "#bfc1d2";
-      text = "#d3d6e1";
-      subtext1 = "#bec2d2";
-      subtext0 = "#a8adc3";
-      overlay2 = "#9299b4";
-      overlay1 = "#7c84a5";
-      overlay0 = "#686f94";
-      surface2 = "#555a7b";
-      surface1 = "#434664";
-      surface0 = "#30314b";
-      base = "#101010";
-      mantle = "#090909";
-      crust = "#080808";
-    };
-  };
-  ctpBat = pkgs.denoPlatform.mkDenoDerivation {
-    inherit (srcs.catppuccin-bat) pname version src;
-    buildPhase = ''
-      deno run -A ./src/main.ts --overrides '${builtins.toJSON overrides}'
-    '';
-    installPhase = ''
-      mkdir -p $out
-      cp ./themes/* $out/
-    '';
-  };
-  ctpZshFsh = pkgs.denoPlatform.mkDenoDerivation {
-    inherit (srcs.catppuccin-zsh-fsh) pname version src;
-    buildPhase = ''
-      deno run -A ./build.ts --overrides '${builtins.toJSON overrides}'
-    '';
-    installPhase = ''
-      mkdir -p $out
-      cp ./themes/* $out/
-    '';
-  };
 in {
   home.sessionVariables = {
     LESS = "-R --use-color";
@@ -79,24 +29,6 @@ in {
     };
     bat = {
       enable = true;
-      themes = {
-        "Catppuccin Latte" = {
-          src = ctpBat;
-          file = "Catppuccin Latte.tmTheme";
-        };
-        "Catppuccin Frappe" = {
-          src = ctpBat;
-          file = "Catppuccin Frappe.tmTheme";
-        };
-        "Catppuccin Macchiato" = {
-          src = ctpBat;
-          file = "Catppuccin Macchiato.tmTheme";
-        };
-        "Catppuccin Mocha" = {
-          src = ctpBat;
-          file = "Catppuccin Mocha.tmTheme";
-        };
-      };
     };
     btop = {
       enable = true;
@@ -143,7 +75,66 @@ in {
 
     starship = {
       enable = true;
-      settings = builtins.fromTOML (builtins.readFile ./starship/config.toml);
+      settings = {
+        command_timeout = 3000;
+        format = "$username$hostname$nix_shell$character";
+        right_format = "$directory$git_branch$git_commit$git_state$git_status";
+
+        character = {
+          success_symbol = "[λ](bold green)";
+          error_symbol = "[λ](bold red)";
+          vimcmd_symbol = "[](bold purple)";
+          vimcmd_replace_symbol = "[](bold green)";
+          vimcmd_replace_one_symbol = "[](bold green)";
+          vimcmd_visual_symbol = "[](bold yellow)";
+        };
+
+        username = {
+          format = "[$user]($style) ";
+          disabled = false;
+          style_user = "fg:yellow italic";
+          show_always = true;
+        };
+
+        hostname = {
+          ssh_only = true;
+          ssh_symbol = "";
+          format = "at [$hostname](bold blue) ";
+          disabled = false;
+        };
+
+        git_commit.format = ''( [\($hash$tag\)]($style))'';
+        git_state.format = " [\\($state( $progress_current/$progress_total)\\)]($style)";
+
+        git_status = {
+          ahead = "↑";
+          behind = "↓";
+          conflicted = "±";
+          deleted = "×";
+          diverged = "↕";
+          modified = "‼";
+          renamed = "≡";
+          stashed = "⌂";
+          format = ''( [\[$all_status$ahead_behind\]]($style))'';
+        };
+
+        git_branch = {
+          format = " → [$symbol$branch(:$remote_branch)]($style)";
+          symbol = "";
+        };
+
+        battery.disabled = true;
+        line_break.disabled = true;
+
+        directory = {
+          read_only = "(ro)";
+          format = "[$read_only]($read_only_style) [$path]($style)";
+          style = "fg:cyan italic";
+          read_only_style = "fg:red";
+        };
+
+        nix_shell.format = "[(\\($name\\))]($style) ";
+      };
     };
 
     tealdeer = {
@@ -227,6 +218,4 @@ in {
       history.path = "${config.xdg.configHome}/zsh/history";
     };
   };
-
-  xdg.configFile."fsh".source = "${ctpZshFsh}";
 }

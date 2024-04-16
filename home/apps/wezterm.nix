@@ -17,7 +17,7 @@ in {
 
     (lib.mkIf config.isGraphical {
       programs.wezterm = {
-        enable = true;
+        enable = false;
         package = lib.mkIf isDarwin pkgs.nur.repos.nekowinston.wezterm-nightly;
       };
 
@@ -25,6 +25,10 @@ in {
         "wezterm/wezterm.lua".source = mkSymlink "wezterm.lua";
         "wezterm/config" = {
           source = mkSymlink "config";
+          recursive = true;
+        };
+        "wezterm/colors" = {
+          source = mkSymlink "colors";
           recursive = true;
         };
         "wezterm/bar".source = srcs.nekowinston-wezterm-bar.src;

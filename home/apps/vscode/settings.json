@@ -1,6 +1,6 @@
 // vim:ft=jsonc
 {
-  "catppuccin.accentColor": "lavender",
+  "catppuccin.accentColor": "mauve",
   "catppuccin.customUIColors": {
     "all": {
       "statusBar.foreground": "accent",
@@ -45,12 +45,12 @@
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
-  "terminal.integrated.fontSize": 15,
-  "editor.fontFamily": "Iosevka, Symbols Nerd Font, monospace",
-  // "workbench.fontAliasing": "auto",
+  "terminal.integrated.fontSize": 14,
+  "editor.fontFamily": "Maple Mono, Symbols Nerd Font, monospace",
+  "workbench.fontAliasing": "auto",
   // "editor.fontFamily": "Cascadia Code, Symbols Nerd Font, monospace",
-  "editor.fontLigatures": "'calt', 'ss14'",
-  "editor.fontSize": 16,
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.inlayHints.enabled": "onUnlessPressed",

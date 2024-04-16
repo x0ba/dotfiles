@@ -13,6 +13,7 @@ in {
         _1password
         age
         age-plugin-yubikey
+        bitwarden-cli
         deno
         fd
         ffmpeg

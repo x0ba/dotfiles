@@ -7,14 +7,10 @@
   config = lib.mkIf config.isGraphical {
     home.packages = with pkgs; [
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-      fira-code
       ibm-plex
+      jetbrains-mono
+      dejavu_fonts
       iosevka
-      overpass
-      geist-font
-      inter
-      martian-mono
-      monaspace
     ];
   };
 }

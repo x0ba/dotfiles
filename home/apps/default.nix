@@ -2,10 +2,13 @@
   imports = [
     ./browsers.nix
     ./colorscheme-sync.nix
-    ./discord.nix
+    # ./discord.nix
+    ./emacs.nix
     ./fonts.nix
+    ./fish.nix
     ./git.nix
     ./gnome.nix
+    ./ghostty.nix
     ./gpg.nix
     ./gtk.nix
     ./kubernetes.nix

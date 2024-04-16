@@ -1,32 +1,19 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [./options.nix];
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
+  programs.fish.enable = true;
+
+  system.activationScripts.postActivation.text = ''
+    # Set the default shell as fish for the user
+    sudo chsh -s ${pkgs.fish}/bin/fish daniel
+  '';
 
   system.stateVersion = 4;
-  system.defaults = {
-    dock = {
-      autohide = true;
-      showhidden = true;
-      mru-spaces = false;
-    };
-    finder = {
-      AppleShowAllExtensions = true;
-      QuitMenuItem = true;
-      FXEnableExtensionChangeWarning = true;
-    };
-    NSGlobalDomain = {
-      AppleKeyboardUIMode = 3;
-      ApplePressAndHoldEnabled = false;
-      AppleFontSmoothing = 1;
-      _HIHideMenuBar = false;
-      InitialKeyRepeat = 10;
-      KeyRepeat = 1;
-      "com.apple.mouse.tapBehavior" = 1;
-      "com.apple.swipescrolldirection" = true;
-    };
-  };
-
   security.pam.enableSudoTouchIdAuth = true;
   system.defaults.alf.stealthenabled = 1;
 
@@ -34,6 +21,10 @@
   services.nix-daemon.enable = true;
 
   services = {
+    emacs = {
+      enable = true;
+      package = pkgs.emacs;
+    };
     yabai = {
       enable = false;
       enableScriptingAddition = true;

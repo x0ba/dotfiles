@@ -2,11 +2,12 @@
 default:
   @just --choose
 
+set shell := ["zsh", "-c"]
+
 export NIX_CONFIG := "
   accept-flake-config = true
   extra-experimental-features = flakes nix-command
 "
-
 # wrapper around {nixos,darwin}-rebuild, always taking the flake
 [private]
 [macos]

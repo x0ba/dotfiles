@@ -153,9 +153,9 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ghostty.url = "github:clo4/ghostty-hm-module";
     swayfx = {
       url = "github:willpower3309/swayfx";
-      inputs.flake-compat.follows = "";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server = {

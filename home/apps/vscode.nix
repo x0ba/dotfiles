@@ -74,6 +74,8 @@ in {
         }))
         adrianwilczynski.alpine-js-intellisense
         antfu.icons-carbon
+        gargakshit.theme-alabaster-dark
+        tonsky.theme-alabaster
         arcanis.vscode-zipfs
         astro-build.astro-vscode
         bashmish.es6-string-css
