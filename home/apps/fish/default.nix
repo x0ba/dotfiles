@@ -3,11 +3,6 @@
   config,
   ...
 }: {
-  home.sessionVariables = {
-    LC_ALL = "en_US.UTF-8";
-    LC_CTYPE = "en_US.UTF-8";
-    PROJECTS = "$HOME/c";
-  };
   programs.fish = {
     enable = true;
     shellInit = ''
@@ -94,14 +89,15 @@
       tf = "terraform";
 
       # tmux
-      sf = "sesh connect $(sesh list | fzf)";
-      sc = "sesh connect";
-      s = "sesh";
+      ta = "tmux new -A -s default";
+
+      # mods
+      gcai = "git --no-pager diff | mods 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars' >.git/gcai; git commit -a -F .git/gcai -e";
     };
   };
 
   xdg.configFile."fish/functions" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./fish/functions;
+    source = config.lib.file.mkOutOfStoreSymlink ./functions;
   };
 
   xdg.configFile."fish/themes/Catppuccin Mocha.theme" = {

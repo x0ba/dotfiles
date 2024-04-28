@@ -21,10 +21,6 @@
   services.nix-daemon.enable = true;
 
   services = {
-    emacs = {
-      enable = true;
-      package = pkgs.emacs;
-    };
     yabai = {
       enable = false;
       enableScriptingAddition = true;

@@ -1,7 +1,4 @@
 {pkgs, ...}: {
-  # use fsmonitor
-  home.packages = [pkgs.rs-git-fsmonitor pkgs.watchman];
-
   programs.git = {
     enable = true;
     userName = "x0ba";
@@ -41,7 +38,6 @@
     ];
 
     extraConfig = {
-      core.fsmonitor = "rs-git-fsmonitor";
       credential.helper = "gopass";
       init.defaultBranch = "main";
       push.default = "current";

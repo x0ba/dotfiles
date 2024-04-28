@@ -2,23 +2,24 @@
   imports = [
     ./browsers.nix
     ./colorscheme-sync.nix
-    # ./discord.nix
-    ./emacs.nix
-    ./fonts.nix
     ./fish.nix
+    ./fonts.nix
+    ./emacs.nix
+    ./ghostty.nix
     ./git.nix
     ./gnome.nix
-    ./ghostty.nix
     ./gpg.nix
     ./gtk.nix
+    ./helix.nix
     ./kubernetes.nix
     ./media.nix
     ./neovim.nix
     ./rice.nix
     ./sway.nix
+    ./tmux.nix
     ./vscode.nix
     ./wezterm.nix
-    ./helix.nix
+    ./zellij.nix
     ./zsh.nix
   ];
 }

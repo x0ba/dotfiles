@@ -11,40 +11,44 @@ in {
     enable = true;
     caskArgs.require_sha = true;
     casks = [
-      "appcleaner"
+      "1password"
       "alt-tab"
-      "bitwarden"
+      "appcleaner"
+      "arc"
+      "brave-browser"
       "bettertouchtool"
-      "blender"
-      "boop"
       "discord"
-      "firefox"
+      "hiddenbar"
       "iina"
       "imageoptim"
       "jetbrains-toolbox"
+      "karabiner-elements"
       "keka"
       "linearmouse"
+      "maccy"
       "macfuse"
       "mullvad-browser"
       "mullvadvpn"
       "netnewswire"
-      "obs"
       "obsidian"
-      "pictogram"
+      "orion"
       "radio-silence"
       "raycast"
-      "stats"
       "shottr"
-      (skipSha "spotify")
-      "qbittorrent"
+      "ticktick"
+      "tor-browser"
       "veracrypt"
       "wacom-tablet"
       "whisky"
       "yubico-authenticator"
       "zed"
       "zotero"
+      (skipSha "element")
+      (skipSha "soundsource")
+      (skipSha "spotify")
     ];
     onActivation = {
+      cleanup = "uninstall";
       autoUpdate = true;
       upgrade = true;
     };

@@ -13,23 +13,25 @@ in {
         _1password
         age
         age-plugin-yubikey
-        bitwarden-cli
+        gnused
         deno
         fd
         ffmpeg
         file
+        sesh
         gh
         git-crypt
         gocryptfs
+        nodejs_20
         imagemagick
         just
         pandoc
         mdcat
         nix-output-monitor
-        nur.repos.nekowinston.icat
         nvd
         ranger
         ripgrep
+        rust-analyzer
         wakatime
         watchexec
       ]

@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
   key = "0x20347137CA846F7F";
   mailvelopeConfig = builtins.toJSON {
@@ -13,7 +17,7 @@ in {
       git-credential-gopass
       gopass
       gopass-jsonapi
-      yubikey-personalization
+      # yubikey-personalization
     ]
     ++ lib.optionals isDarwin [pinentry_mac]);
 
@@ -97,9 +101,9 @@ in {
     enable = isLinux;
     enableExtraSocket = true;
     enableSshSupport = true;
-    # pinentryPackage =
-    #   if config.isGraphical
-    #   then pkgs.pinentry-gnome3
-    #   else pkgs.pinentry-curses;
+    pinentryPackage =
+      if config.isGraphical
+      then pkgs.pinentry-gnome3
+      else pkgs.pinentry-curses;
   };
 }

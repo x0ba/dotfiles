@@ -2,7 +2,7 @@ _: {
   programs.helix = {
     enable = true;
     settings = {
-      theme = "one_dark";
+      theme = "catppuccin_frappe";
       editor = {
         line-number = "relative";
         cursor-shape = {

@@ -65,7 +65,7 @@
           inherit (config.pre-commit.devShell) shellHook;
           RULES = "./home/secrets/secrets.nix";
           buildInputs = with pkgs;
-            [alejandra just nil nvfetcher nix-output-monitor nvd inputs'.agenix.packages.agenix]
+            [alejandra just nixd nvfetcher nix-output-monitor nvd inputs'.agenix.packages.agenix]
             ++ lib.optionals stdenv.isDarwin [inputs'.darwin.packages.darwin-rebuild];
         };
 
@@ -127,10 +127,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nekowinston-nur.url = "github:nekowinston/nur";
-    nix-deno = {
-      url = "github:nekowinston/nix-deno";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     catppuccin-vsc = {
       url = "github:catppuccin/vscode";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -142,6 +138,10 @@
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "flake-utils/systems";
+    };
+    sf-mono-liga-src = {
+      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
     };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

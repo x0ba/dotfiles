@@ -11,8 +11,6 @@ in {
     programs.mpv.enable = isLinux;
     programs.zathura.enable = isLinux;
 
-    home.packages = lib.mkIf isLinux [(pkgs.callPackage ../../pkgs/apple-music.nix {})];
-
     services.mopidy = lib.mkIf isLinux {
       enable = true;
       extensionPackages = with pkgs; [
