@@ -38,7 +38,7 @@
           "calt"
           "liga"
         ];
-        # theme = "catppuccin-mocha";
+        theme = "tokyonight";
 
         font-codepoint-map = [
           "U+f000-U+f2e0,U+e200-U+e2a9=JetBrainsMono Nerd Font Mono"

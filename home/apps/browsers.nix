@@ -22,10 +22,10 @@ in {
         search.force = true;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
+          onepassword-password-manager
           df-youtube
           languagetool
           multi-account-containers
-          bitwarden
           refined-github
           temporary-containers
           ublock-origin

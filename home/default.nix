@@ -27,6 +27,8 @@ in {
         just
         pandoc
         mdcat
+        marksman
+        markdownlint-cli
         nix-output-monitor
         nvd
         ranger

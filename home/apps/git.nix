@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     userName = "x0ba";
-    userEmail = "x0ba@tuta.io";
+    userEmail = "hey@x0ba.net";
 
     signing = {
       signByDefault = true;
@@ -30,8 +30,7 @@
       "*.swp"
       ".gonvim/"
       ".idea/"
-      "ltex.dictionary*.txt"
-      "ltex.disabledRules.*.txt"
+      "ltex.*.txt"
       # nix-specific
       ".direnv/"
       ".envrc"

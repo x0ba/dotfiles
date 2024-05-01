@@ -72,6 +72,7 @@ in {
             ' < package.json | sponge package.json
           '';
         }))
+        enkia.tokyo-night
         ms-vscode-remote.remote-ssh-edit
         ms-vscode.remote-explorer
         adrianwilczynski.alpine-js-intellisense

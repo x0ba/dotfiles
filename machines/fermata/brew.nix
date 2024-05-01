@@ -3,6 +3,10 @@
     inherit name;
     args.require_sha = false;
   };
+  noQuarantine = name: {
+    inherit name;
+    args.no_quarantine = true;
+  };
 in {
   # make brew available in PATH
   environment.systemPath = [config.homebrew.brewPrefix];
@@ -10,45 +14,45 @@ in {
   homebrew = {
     enable = true;
     caskArgs.require_sha = true;
+    brews = [
+      "podman"
+      "podman-compose"
+    ];
     casks = [
       "1password"
       "alt-tab"
       "appcleaner"
-      "arc"
-      "brave-browser"
       "bettertouchtool"
       "discord"
+      "dropzone"
       "hiddenbar"
       "iina"
       "imageoptim"
       "jetbrains-toolbox"
-      "karabiner-elements"
+      "shottr"
+      "stats"
       "keka"
+      "flux"
       "linearmouse"
-      "maccy"
-      "macfuse"
+      "mac-mouse-fix"
+      "monitorcontrol"
       "mullvad-browser"
-      "mullvadvpn"
-      "netnewswire"
+      "numi"
       "obsidian"
       "orion"
-      "radio-silence"
-      "raycast"
-      "shottr"
-      "ticktick"
-      "tor-browser"
+      "skim"
+      "tempbox"
+      "todoist"
       "veracrypt"
       "wacom-tablet"
-      "whisky"
       "yubico-authenticator"
       "zed"
-      "zotero"
-      (skipSha "element")
       (skipSha "soundsource")
       (skipSha "spotify")
+      (skipSha "element")
     ];
     onActivation = {
-      cleanup = "uninstall";
+      cleanup = "zap";
       autoUpdate = true;
       upgrade = true;
     };
