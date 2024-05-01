@@ -23,7 +23,6 @@ in {
       "alt-tab"
       "appcleaner"
       "bettertouchtool"
-      "discord"
       "dropzone"
       "hiddenbar"
       "iina"

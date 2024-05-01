@@ -4,9 +4,9 @@
     ./colorscheme-sync.nix
     ./fish.nix
     ./fonts.nix
-    ./emacs.nix
     ./ghostty.nix
     ./git.nix
+    ./discord.nix
     ./gnome.nix
     ./gpg.nix
     ./gtk.nix
