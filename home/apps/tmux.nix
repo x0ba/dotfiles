@@ -1,42 +1,116 @@
-{pkgs, ...}: let
-  tokyo-night-tmux = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tokyo-night-tmux";
-    rtpFilePath = "tokyo-night.tmux";
-    version = "1.5";
+{ pkgs, ... }:
+let
+  inherit (pkgs.tmuxPlugins) mkTmuxPlugin;
+
+  menus = mkTmuxPlugin {
+    pluginName = "menus";
+    version = "unstable-2024-04-09";
     src = pkgs.fetchFromGitHub {
-      owner = "janoamaral";
-      repo = "tokyo-night-tmux";
-      rev = "08017465a0cbe0ee5255369a4b7837cb3bab809e";
-      sha256 = "sha256-RFQWX1eG2h0iFbF5OtZJLSbHPXNI8TH+qs1/685+1lc=";
+      owner = "jaclu";
+      repo = "tmux-menus";
+      rev = "66700dd790374d40482d836b3e12e88231da79e6";
+      sha256 = "sha256-Q0zVLIQ9f0KTO1Y3gDJU+5CbfnpGeUQhp1OPaml1FuU=";
     };
   };
-in {
+  themepack = mkTmuxPlugin {
+    pluginName = "themepack";
+    version = "unstable-2022-12-23";
+    src = pkgs.fetchFromGitHub {
+      owner = "jimeh";
+      repo = "tmux-themepack";
+      rev = "7c59902f64dcd7ea356e891274b21144d1ea5948";
+      sha256 = "sha256-c5EGBrKcrqHWTKpCEhxYfxPeERFrbTuDfcQhsUAbic4=";
+    };
+  };
+in
+{
   programs.tmux = {
     enable = true;
-    extraConfig = builtins.readFile ./tmux/tmux.conf;
-    plugins = with pkgs; [
-      tmuxPlugins.yank
-      tmuxPlugins.vim-tmux-navigator
+    sensibleOnTop = true;
+    prefix = "C-a";
+    plugins = with pkgs.tmuxPlugins; [
       {
-        plugin = tokyo-night-tmux;
+        plugin = menus;
         extraConfig = ''
-          set -g @tokyo-night-tmux_window_id_style none
+          set -g @menus_location_x 'C'
+          set -g @menus_location_y 'C'
+          set -g @menus_trigger 'm'
+
+          # nix-specific, cache dir would be read-only
+          set -g @menus_use_cache 'no'
         '';
       }
+      {
+        plugin = jump;
+        extraConfig = "set -g @jump-key 'f'";
+      }
+      {
+        plugin = open;
+        extraConfig = "set -g @open-S 'https://duckduckgo.com/?q='";
+      }
+      {
+        plugin = urlview;
+        extraConfig = "set -g @urlview-key 'u'";
+      }
+      {
+        plugin = themepack;
+        extraConfig = "set -g @themepack 'basic'";
+      }
     ];
+    terminal = "tmux-256color";
+
+    clock24 = true;
+    mouse = true;
+
+    keyMode = "vi";
+    customPaneNavigationAndResize = true;
+
+    extraConfig = ''
+      # neovim fixes
+      set-option -g terminal-overrides ',xterm-256color:RGB'
+      set-option -g focus-events on
+      set-option -sg escape-time 10
+
+      # some nice settings
+      set-option -g focus-events on
+      set-option -g display-time 3000
+      set -g base-index 1
+      set -g detach-on-destroy off
+      set -g escape-time 0
+      set -g history-limit 1000000
+      set -g mouse on
+      set -g renumber-windows on
+      set -g set-clipboard on
+      set -g status-interval 3
+
+      bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+      set -g detach-on-destroy off  # don't exit from tmux when closing a session
+
+      # split with | and -
+      unbind-key \\
+      unbind-key -
+      bind-key \\ split-window -h -c "#{pane_current_path}"
+      bind-key -  split-window -v -c "#{pane_current_path}"
+
+      # sesh keybinds
+      bind-key "T" run-shell "sesh connect \"$(
+      sesh list | fzf-tmux -p 55%,60% \
+      --no-sort --border-label ' sesh ' --prompt '⚡  ' \
+      --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+      --bind 'tab:down,btab:up' \
+      --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list)' \
+      --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t)' \
+      --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c)' \
+      --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z)' \
+      --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+      --bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(⚡  )+reload(sesh list)'
+      )\""
+
+      # couple of vi mode keybinds
+      unbind -T copy-mode-vi Space; # Default for begin-selection
+      unbind -T copy-mode-vi Enter; # Default for copy-selection
+      bind -T copy-mode-vi v send-keys -X begin-selection
+      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "clipcopy"
+    '';
   };
-
-  programs.fish.interactiveShellInit = ''
-    # traps the shell quit and switch to the last session if it's the last pane
-    # if last session is not available anymore, switch to default
-    function __trap_exit_tmux
-        test (tmux list-windows | count) = 1 || exit
-        test (tmux list-panes | count) = 1 || exit
-        tmux switch-client -l || tmux switch-client -t default
-    end
-
-    if set -q TMUX
-        trap __trap_exit_tmux EXIT
-    end
-  '';
 }

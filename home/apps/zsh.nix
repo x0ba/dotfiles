@@ -3,24 +3,29 @@
   lib,
   pkgs,
   ...
-}: let
-  srcs = pkgs.callPackage ../../_sources/generated.nix {};
-  zshPlugins = plugins: (map (plugin: rec {
+}:
+let
+  inherit (pkgs.stdenv) isLinux;
+  srcs = pkgs.callPackage ../../_sources/generated.nix { };
+  zshPlugins =
+    plugins:
+    (map (plugin: rec {
       name = src.name;
       inherit (plugin) file src;
-    })
-    plugins);
-in {
+    }) plugins);
+in
+{
   home.sessionVariables = {
     LESS = "-R --use-color";
     LESSHISTFILE = "-";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
   };
+  home.packages = [ pkgs.onefetch ];
 
   programs = {
     atuin = {
       enable = true;
-      flags = ["--disable-up-arrow"];
+      flags = [ "--disable-up-arrow" ];
       settings = {
         inline_height = 30;
         style = "compact";
@@ -29,6 +34,24 @@ in {
     };
     bat = {
       enable = true;
+      themes = {
+        "Catppuccin Latte" = {
+          src = "${srcs.catppuccin-bat.src}/themes";
+          file = "Catppuccin Latte.tmTheme";
+        };
+        "Catppuccin Frappe" = {
+          src = "${srcs.catppuccin-bat.src}/themes";
+          file = "Catppuccin Frappe.tmTheme";
+        };
+        "Catppuccin Macchiato" = {
+          src = "${srcs.catppuccin-bat.src}/themes";
+          file = "Catppuccin Macchiato.tmTheme";
+        };
+        "Catppuccin Mocha" = {
+          src = "${srcs.catppuccin-bat.src}/themes";
+          file = "Catppuccin Mocha.tmTheme";
+        };
+      };
     };
     btop = {
       enable = true;
@@ -66,7 +89,11 @@ in {
         prompt = "#cba6f7";
         spinner = "#f5e0dc";
       };
-      defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
+      defaultOptions = [
+        "--height=30%"
+        "--layout=reverse"
+        "--info=inline"
+      ];
     };
 
     less.enable = true;
@@ -108,16 +135,55 @@ in {
           ZVM_VI_HIGHLIGHT_FOREGROUND=white
         }
       '';
-      initExtra = ''
-        for script in "${./zsh/functions}"/**/*; do source "$script"; done
-      '';
+      initExtra =
+        ''
+          function incognito() {
+            if [[ -n $ZSH_INCOGNITO ]]; then
+              add-zsh-hook precmd _atuin_precmd
+              add-zsh-hook preexec _atuin_preexec
+              unset ZSH_INCOGNITO
+            else
+              add-zsh-hook -d precmd _atuin_precmd
+              add-zsh-hook -d preexec _atuin_preexec
+              export ZSH_INCOGNITO=1
+            fi
+          }
+
+          onefetch_in_git_dir() {
+            if [[ -d '.git' ]]; then
+              ${pkgs.onefetch}/bin/onefetch --no-merges --no-bots --no-color-palette --text-colors 1 1 3 4 4
+            fi
+          }
+
+          add-zsh-hook chpwd onefetch_in_git_dir
+
+          BAT_THEME="Catppuccin Mocha"
+          STARSHIP_CONFIG__PALETTE="catppuccin_mocha"
+
+          export BAT_THEME LS_COLORS STARSHIP_CONFIG__PALETTE
+
+          fast-theme "XDG:catppuccin-mocha" >/dev/null
+        ''
+        + lib.optionalString isLinux ''
+          function open() {
+            nohup xdg-open "$*" > /dev/null 2>&1
+          }
+        '';
 
       dotDir = ".config/zsh";
       oh-my-zsh = {
         enable = true;
         plugins =
-          ["colored-man-pages" "colorize" "git" "kubectl"]
-          ++ lib.optionals pkgs.stdenv.isDarwin ["dash" "macos"];
+          [
+            "colored-man-pages"
+            "colorize"
+            "git"
+            "kubectl"
+          ]
+          ++ lib.optionals pkgs.stdenv.isDarwin [
+            "dash"
+            "macos"
+          ];
       };
       plugins = zshPlugins [
         {
@@ -155,8 +221,14 @@ in {
         # podman
         docker = "podman";
         docker-compose = "podman-compose";
+
+        sf = "sesh connect $(sesh list | fzf)";
+        sc = "sesh connect";
+        s = "sesh";
       };
       history.path = "${config.xdg.configHome}/zsh/history";
     };
   };
+
+  xdg.configFile."fsh".source = "${srcs.catppuccin-zsh-fsh.src}/themes";
 }

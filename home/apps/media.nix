@@ -3,13 +3,17 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
-in {
+}:
+let
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
+in
+{
   config = lib.mkIf config.isGraphical {
     programs.imv.enable = isLinux;
     programs.mpv.enable = isLinux;
     programs.zathura.enable = isLinux;
+
+    home.packages = lib.mkIf isLinux [ (pkgs.callPackage ../../pkgs/apple-music.nix { }) ];
 
     services.mopidy = lib.mkIf isLinux {
       enable = true;
@@ -20,7 +24,6 @@ in {
         mopidy-podcast
       ];
     };
-    services.mpd-discord-rpc.enable = isLinux;
 
     xdg.mimeApps.defaultApplications = {
       "application/pdf" = "zathura.desktop";

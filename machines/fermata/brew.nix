@@ -1,4 +1,5 @@
-{config, ...}: let
+{ config, ... }:
+let
   skipSha = name: {
     inherit name;
     args.require_sha = false;
@@ -7,9 +8,10 @@
     inherit name;
     args.no_quarantine = true;
   };
-in {
+in
+{
   # make brew available in PATH
-  environment.systemPath = [config.homebrew.brewPrefix];
+  environment.systemPath = [ config.homebrew.brewPrefix ];
 
   homebrew = {
     enable = true;
@@ -20,38 +22,34 @@ in {
     ];
     casks = [
       "1password"
-      "alt-tab"
       "appcleaner"
       "bettertouchtool"
-      "dropzone"
-      "hiddenbar"
+      "rectangle"
+      "firefox"
+      "karabiner-elements"
+      "hammerspoon"
       "iina"
       "imageoptim"
-      "jetbrains-toolbox"
       "shottr"
-      "stats"
+      "jetbrains-toolbox"
       "keka"
-      "flux"
       "linearmouse"
-      "mac-mouse-fix"
-      "monitorcontrol"
       "mullvad-browser"
-      "numi"
+      "hiddenbar"
       "obsidian"
-      "orion"
       "skim"
       "tempbox"
       "todoist"
       "veracrypt"
       "wacom-tablet"
       "yubico-authenticator"
+      "utm"
       "zed"
       (skipSha "soundsource")
       (skipSha "spotify")
       (skipSha "element")
     ];
     onActivation = {
-      cleanup = "zap";
       autoUpdate = true;
       upgrade = true;
     };

@@ -1,14 +1,11 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   config = lib.mkIf config.isGraphical {
     programs.ghostty = {
       enable = true;
 
       settings = {
-        unfocused-split-opacity = 0.80;
+        unfocused-split-opacity = 0.8;
         mouse-hide-while-typing = true;
 
         quit-after-last-window-closed = true;
@@ -16,16 +13,17 @@
         cursor-style = "block";
         cursor-style-blink = true;
         macos-option-as-alt = true;
-        window-theme = "dark";
         clipboard-read = "allow";
         clipboard-paste-protection = false;
         confirm-close-surface = false;
 
         font-family = "Liga Berkeley Mono";
-        font-size = 14;
+        font-size = 13;
 
         window-padding-x = 10;
         window-padding-y = 10;
+
+        macos-titlebar-tabs = true;
 
         font-feature = [
           "zero"
@@ -38,7 +36,7 @@
           "calt"
           "liga"
         ];
-        theme = "tokyonight";
+        theme = "catppuccin-mocha";
 
         font-codepoint-map = [
           "U+f000-U+f2e0,U+e200-U+e2a9=JetBrainsMono Nerd Font Mono"

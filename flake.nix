@@ -1,23 +1,19 @@
 {
   description = "x0ba's hm flake";
-
-  outputs = {
-    flake-parts,
-    self,
-    ...
-  } @ inputs: let
-    inherit (import ./machines/lib.nix {inherit inputs overlays;}) mkSystems;
-    overlays = import ./pkgs/overlays.nix {inherit inputs;};
-  in
-    flake-parts.lib.mkFlake {inherit self inputs;}
-    {
+  outputs =
+    { flake-parts, self, ... }@inputs:
+    let
+      inherit (import ./machines/lib.nix { inherit inputs overlays; }) mkSystems;
+      overlays = import ./pkgs/overlays.nix { inherit inputs; };
+    in
+    flake-parts.lib.mkFlake { inherit self inputs; } {
       flake = mkSystems [
         {
           host = "fermata";
           system = "aarch64-darwin";
           username = "daniel";
           isGraphical = true;
-          extraModules = [inputs.nekowinston-nur.darwinModules.default];
+          extraModules = [ inputs.nekowinston-nur.darwinModules.default ];
         }
         {
           host = "sonata";
@@ -30,77 +26,92 @@
           system = "x86_64-linux";
           username = "daniel";
           isGraphical = false;
-          extraModules = [inputs.wsl.nixosModules.default];
+          extraModules = [ inputs.wsl.nixosModules.default ];
         }
       ];
-      imports = [inputs.pre-commit-hooks.flakeModule];
-      perSystem = {
-        config,
-        self',
-        inputs',
-        pkgs,
-        system,
-        ...
-      }: {
-        _module.args.pkgs = import inputs.nixpkgs {
-          inherit overlays system;
-          config.allowUnfree = true;
-        };
-
-        pre-commit = {
-          check.enable = true;
-          settings.excludes = ["_sources/"];
-          settings.hooks = {
-            alejandra.enable = true;
-            commitizen.enable = true;
-            editorconfig-checker.enable = true;
-            luacheck.enable = true;
-            nil.enable = true;
-            shellcheck.enable = true;
-            stylua.enable = true;
+      imports = [ inputs.pre-commit-hooks.flakeModule ];
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          lib,
+          system,
+          ...
+        }:
+        {
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit overlays system;
+            config.allowUnfree = true;
           };
-        };
 
-        devShells.default = pkgs.mkShell {
-          inherit (config.pre-commit.devShell) shellHook;
-          RULES = "./home/secrets/secrets.nix";
-          buildInputs = with pkgs;
-            [alejandra lua-language-server just nixd nvfetcher nix-output-monitor nvd inputs'.agenix.packages.agenix]
-            ++ lib.optionals stdenv.isDarwin [inputs'.darwin.packages.darwin-rebuild];
-        };
-
-        legacyPackages.homeConfigurations = let
-          homeLib = import ./home/lib.nix {
-            inherit inputs pkgs username;
-            isNixOS = false;
+          pre-commit = {
+            check.enable = true;
+            settings.excludes = [ "_sources/" ];
+            settings.hooks = {
+              commitizen.enable = true;
+              editorconfig-checker.enable = true;
+              luacheck.enable = true;
+              nil.enable = true;
+              nixfmt.enable = true;
+              nixfmt.package = pkgs.nixfmt-rfc-style;
+              shellcheck.enable = true;
+              stylua.enable = true;
+            };
           };
-          username = "daniel";
-        in {
-          ${username} = inputs.home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            inherit (homeLib) extraSpecialArgs modules;
+          devShells.default = pkgs.mkShell {
+            inherit (config.pre-commit.devShell) shellHook;
+            RULES = "./home/secrets/secrets.nix";
+            buildInputs =
+              (with pkgs; [
+                just
+                nix-output-monitor
+                nixd
+                nvd
+                self'.formatter
+              ])
+              ++ [ inputs'.agenix.packages.agenix ]
+              ++ lib.optionals pkgs.stdenv.isDarwin [ inputs'.darwin.packages.darwin-rebuild ];
           };
-        };
 
-        formatter = pkgs.alejandra;
-      };
-      systems = ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
+          legacyPackages.homeConfigurations =
+            let
+              homeLib = import ./home/lib.nix {
+                inherit inputs pkgs username;
+                isNixOS = false;
+              };
+              username = "daniel";
+            in
+            {
+              ${username} = inputs.home-manager.lib.homeManagerConfiguration {
+                inherit pkgs;
+                inherit (homeLib) extraSpecialArgs modules;
+              };
+            };
+
+          formatter = pkgs.nixfmt-rfc-style;
+        };
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
     };
 
   nixConfig = {
     extra-substituters = [
-      "https://cache.garnix.io"
-      "https://mic92.cachix.org"
-      "https://nekowinston.cachix.org"
       "https://nix-community.cachix.org"
       "https://pre-commit-hooks.cachix.org"
+      "https://nekowinston.cachix.org"
+      "https://mic92.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-      "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
-      "nekowinston.cachix.org-1:lucpmaO+JwtoZj16HCO1p1fOv68s/RL1gumpVzRHRDs="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
+      "nekowinston.cachix.org-1:lucpmaO+JwtoZj16HCO1p1fOv68s/RL1gumpVzRHRDs="
+      "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
     ];
   };
 

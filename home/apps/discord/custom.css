@@ -5,7 +5,7 @@
   --font-primary: "IBM Plex Sans", sans-serif;
   --font-headline: "IBM Plex Sans", sans-serif;
   --font-display: "IBM Plex Sans", sans-serif;
-  --font-code: "Liga Berkeley Mono", "IBM Plex Mono", "Symbols Nerd Font", mono;
+  --font-code: "MD IO Trial", "IBM Plex Mono", "Symbols Nerd Font", mono;
 }
 
 div[class*="messageContent__"] {
