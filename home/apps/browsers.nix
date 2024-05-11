@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (pkgs.stdenv) isLinux isDarwin;
-in {
+in
+{
   config = lib.mkIf config.isGraphical {
     programs.chromium = {
       enable = isLinux;
@@ -155,7 +157,7 @@ in {
     };
 
     home.packages = lib.mkIf isLinux [
-      pkgs.nur.repos.nekowinston.sizzy
+      # pkgs.nur.repos.nekowinston.sizzy
       pkgs.mullvad-browser
     ];
 
