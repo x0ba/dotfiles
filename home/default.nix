@@ -49,7 +49,7 @@ in
         ]
         ++ lib.optionals (config.isGraphical && isLinux) [
           _1password-gui
-          nur.repos.nekowinston.uhk-agent
+          # nur.repos.nekowinston.uhk-agent
           neovide
         ]
       );
