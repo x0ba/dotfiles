@@ -35,6 +35,7 @@ in
       "mullvad-browser"
       "obsidian"
       "lulu"
+      "qbittorrent"
       "shottr"
       "skim"
       "tempbox"
