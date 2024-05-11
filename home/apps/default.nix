@@ -6,7 +6,7 @@
     ./fonts.nix
     ./ghostty.nix
     ./git.nix
-    ./discord.nix
+    # ./discord.nix
     ./gnome.nix
     ./gpg.nix
     ./gtk.nix

@@ -24,32 +24,29 @@ in
       "1password"
       "appcleaner"
       "bettertouchtool"
-      "rectangle"
+      "discord@canary"
       "firefox"
-      "karabiner-elements"
-      "hammerspoon"
       "iina"
       "imageoptim"
-      "shottr"
       "jetbrains-toolbox"
+      "karabiner-elements"
       "keka"
       "linearmouse"
       "mullvad-browser"
-      "hiddenbar"
       "obsidian"
+      "lulu"
+      "shottr"
       "skim"
       "tempbox"
-      "todoist"
+      "utm"
       "veracrypt"
       "wacom-tablet"
       "yubico-authenticator"
-      "utm"
-      "zed"
-      (skipSha "soundsource")
       (skipSha "spotify")
       (skipSha "element")
     ];
     onActivation = {
+      cleanup = "zap";
       autoUpdate = true;
       upgrade = true;
     };

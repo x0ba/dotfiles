@@ -3,45 +3,56 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
-in {
-  imports = [./apps ./secrets ./xdg.nix];
+in
+{
+  imports = [
+    ./apps
+    ./secrets
+    ./xdg.nix
+  ];
 
   home = {
-    packages = with pkgs; ([
-        _1password
-        age
-        age-plugin-yubikey
-        gnused
-        deno
-        fd
-        ffmpeg
-        file
-        sesh
-        gh
-        git-crypt
-        gocryptfs
-        nodejs_20
-        imagemagick
-        just
-        pandoc
-        mdcat
-        marksman
-        markdownlint-cli
-        nix-output-monitor
-        nvd
-        ranger
-        ripgrep
-        rust-analyzer
-        wakatime
-        watchexec
-      ]
-      ++ lib.optionals (config.isGraphical && isLinux) [
-        _1password-gui
-        nur.repos.nekowinston.uhk-agent
-        neovide
-      ]);
+    packages =
+      with pkgs;
+      (
+        [
+          _1password
+          age
+          age-plugin-yubikey
+          gnused
+          deno
+          fd
+          ffmpeg
+          file
+          sesh
+          gh
+          git-crypt
+          gocryptfs
+          nodejs_20
+          imagemagick
+          gum
+          just
+          pandoc
+          mdcat
+          marksman
+          markdownlint-cli
+          nix-output-monitor
+          nvd
+          ranger
+          ripgrep
+          rust-analyzer
+          wakatime
+          watchexec
+        ]
+        ++ lib.optionals (config.isGraphical && isLinux) [
+          _1password-gui
+          nur.repos.nekowinston.uhk-agent
+          neovide
+        ]
+      );
     sessionVariables = lib.mkIf isDarwin {
       SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
     };

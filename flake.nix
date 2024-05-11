@@ -55,7 +55,7 @@
               luacheck.enable = true;
               nil.enable = true;
               nixfmt.enable = true;
-              nixfmt.package = pkgs.nixfmt-rfc-style;
+              nixfmt.package = self'.formatter;
               shellcheck.enable = true;
               stylua.enable = true;
             };
@@ -65,13 +65,19 @@
             RULES = "./home/secrets/secrets.nix";
             buildInputs =
               (with pkgs; [
+                dhall
+                dhall-lsp-server
+                dhall-yaml
                 just
                 nix-output-monitor
                 nixd
                 nvd
                 self'.formatter
               ])
-              ++ [ inputs'.agenix.packages.agenix ]
+              ++ [
+                inputs'.agenix.packages.agenix
+                self'.formatter
+              ]
               ++ lib.optionals pkgs.stdenv.isDarwin [ inputs'.darwin.packages.darwin-rebuild ];
           };
 

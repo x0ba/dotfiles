@@ -17,7 +17,7 @@
         clipboard-paste-protection = false;
         confirm-close-surface = false;
 
-        font-family = "Liga Berkeley Mono";
+        font-family = "JetBrains Mono";
         font-size = 13;
 
         window-padding-x = 10;
@@ -25,24 +25,7 @@
 
         macos-titlebar-tabs = true;
 
-        font-feature = [
-          "zero"
-          "ss01"
-          "ss02"
-          "ss03"
-          "ss04"
-          "ss05"
-          "ss06"
-          "calt"
-          "liga"
-        ];
         theme = "catppuccin-mocha";
-
-        font-codepoint-map = [
-          "U+f000-U+f2e0,U+e200-U+e2a9=JetBrainsMono Nerd Font Mono"
-          "U+e5fa-U+e6b1=JetBrainsMono Nerd Font Mono"
-          "U+ea60-U+ebeb=JetBrainsMono Nerd Font Mono"
-        ];
       };
 
       keybindings = {
