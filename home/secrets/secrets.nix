@@ -7,7 +7,11 @@ let
     _5c2 = "age1yubikey1qdqr74wn9tar9ep9vw5seuv5cy7pk2vkgff7h90tvcec3gsd43lc7udx52v";
   };
 
-  default = [yubikeys._5c1 yubikeys._5c2] ++ (builtins.attrValues homes);
-in {
+  default = [
+    yubikeys._5c1
+    yubikeys._5c2
+  ] ++ (builtins.attrValues homes);
+in
+{
   "home/secrets/wakatime.cfg.age".publicKeys = default;
 }

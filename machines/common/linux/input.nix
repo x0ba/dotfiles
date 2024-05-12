@@ -3,7 +3,7 @@
   services.kanata = {
     enable = true;
     keyboards.keychron-k6 = {
-      devices = ["/dev/input/by-id/usb-Keychron_Keychron_K6-event-kbd"];
+      devices = [ "/dev/input/by-id/usb-Keychron_Keychron_K6-event-kbd" ];
       config = ''
         (defsrc
           esc   1    2    3    4    5    6    7    8    9    0    -    =    bspc

@@ -1,14 +1,12 @@
 # assortment of random bs that's needed
 # to make apps use XDG directories
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config, pkgs, ... }:
+let
   inherit (pkgs.stdenv.hostPlatform) isLinux;
   inherit (config.xdg) cacheHome configHome dataHome;
   inherit (config.home) homeDirectory;
-in {
+in
+{
   home = rec {
     sessionVariables = {
       AZURE_CONFIG_DIR = "${configHome}/azure";

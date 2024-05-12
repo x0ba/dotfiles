@@ -3,10 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.isGraphical {
     home.packages = with pkgs; [
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "JetBrainsMono"];})
+      (nerdfonts.override {
+        fonts = [
+          "NerdFontsSymbolsOnly"
+          "JetBrainsMono"
+        ];
+      })
       ibm-plex
       commit-mono
       ia-writer-quattro

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./boot.nix
     ./gnome.nix
@@ -37,7 +38,7 @@
 
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
-  environment.systemPackages = [pkgs.xdg-utils];
+  environment.systemPackages = [ pkgs.xdg-utils ];
 
   # enable yubikey u2f support
   security.pam.u2f = {
