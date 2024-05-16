@@ -1,12 +1,13 @@
 {
   imports = [
     ./browsers.nix
-    ./colorscheme-sync.nix
+    # ./colorscheme-sync.nix
     ./fish.nix
     ./fonts.nix
     ./ghostty.nix
     ./git.nix
-    # ./discord.nix
+    ./nu.nix
+    ./cli.nix
     ./gnome.nix
     ./gpg.nix
     ./gtk.nix

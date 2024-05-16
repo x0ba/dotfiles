@@ -160,7 +160,7 @@ symbol = ' '
 style = 'fg:yellow'
 
 [shlvl]
-disabled = false
+disabled = true
 format = '[$symbol$shlvl]($style) '
 style = 'fg:yellow'
 symbol = ' '

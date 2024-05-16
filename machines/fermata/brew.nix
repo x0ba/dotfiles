@@ -23,27 +23,34 @@ in
     casks = [
       "1password"
       "appcleaner"
+      "brave-browser"
       "bettertouchtool"
-      "discord@canary"
-      "firefox"
+      "rectangle"
+      "bbedit"
+      "discord"
       "iina"
       "imageoptim"
       "jetbrains-toolbox"
+      "marta"
+      "maccy"
+      "raycast"
       "karabiner-elements"
       "keka"
       "linearmouse"
       "mullvad-browser"
       "obsidian"
-      "lulu"
+      "radio-silence"
       "qbittorrent"
       "shottr"
       "skim"
       "tempbox"
       "utm"
       "veracrypt"
+      "marta"
       "wacom-tablet"
       "yubico-authenticator"
       (skipSha "spotify")
+      (skipSha "hazeover")
       (skipSha "element")
     ];
     onActivation = {

@@ -6,7 +6,7 @@
     userEmail = "hey@x0ba.net";
 
     signing = {
-      signByDefault = true;
+      signByDefault = false;
       key = "5C5C1EFB439B554A81341B1F20347137CA846F7F";
     };
 

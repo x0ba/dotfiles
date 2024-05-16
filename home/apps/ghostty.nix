@@ -25,7 +25,7 @@
 
         macos-titlebar-tabs = true;
 
-        theme = "catppuccin-mocha";
+        theme = "GruvboxDark";
       };
 
       keybindings = {

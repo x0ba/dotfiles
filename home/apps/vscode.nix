@@ -70,6 +70,7 @@ in
           '';
         }))
         adrianwilczynski.alpine-js-intellisense
+        sainnhe.gruvbox-material
         antfu.icons-carbon
         arcanis.vscode-zipfs
         astro-build.astro-vscode

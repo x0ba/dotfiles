@@ -7,18 +7,11 @@
 {
   config = lib.mkIf config.isGraphical {
     home.packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "NerdFontsSymbolsOnly"
-          "JetBrainsMono"
-        ];
-      })
+      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
       ibm-plex
-      commit-mono
-      ia-writer-quattro
+      cascadia-code
       jetbrains-mono
-      dejavu_fonts
-      iosevka
+      hack-font
     ];
   };
 }
