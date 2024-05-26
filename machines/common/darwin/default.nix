@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [ ./options.nix ];
+
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
 

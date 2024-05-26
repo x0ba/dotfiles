@@ -43,6 +43,21 @@ in
         # some default config patching to make these work without needing devShells all the time.
         # other extensions like Go/Rust are only really used with devShells,
         # nix & shell are universal enough for me to want them everywhere.
+        (jnoortheen.nix-ide.overrideAttrs (prev: {
+          nativeBuildInputs = prev.nativeBuildInputs ++ [
+            pkgs.jq
+            pkgs.moreutils
+          ];
+          postInstall = ''
+            cd "$out/$installPrefix"
+            jq -e '
+              .contributes.configuration.properties."nix.enableLanguageServer".default =
+                "true" |
+              .contributes.configuration.properties."nix.serverPath".default =
+                "${pkgs.nixd}/bin/nixd"
+            ' < package.json | sponge package.json
+          '';
+        }))
         (mads-hartmann.bash-ide-vscode.overrideAttrs (prev: {
           nativeBuildInputs = prev.nativeBuildInputs ++ [
             pkgs.jq
@@ -71,6 +86,7 @@ in
         }))
         adrianwilczynski.alpine-js-intellisense
         sainnhe.gruvbox-material
+        akamud.vscode-theme-onedark
         antfu.icons-carbon
         arcanis.vscode-zipfs
         astro-build.astro-vscode
@@ -92,7 +108,6 @@ in
         graphql.vscode-graphql-syntax
         gruntfuggly.todo-tree
         hbenl.vscode-test-explorer
-        jnoortheen.nix-ide
         jock.svg
         leonardssh.vscord
         lunuan.kubernetes-templates

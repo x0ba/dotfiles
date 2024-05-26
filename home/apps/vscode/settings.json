@@ -21,12 +21,12 @@
   "terminal.integrated.smoothScrolling": true,
 
   // fonts
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "editor.inlayHints.fontSize": 8,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Hack, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "JetBrains Mono, Symbols Nerd Font, monospace",
   // Use these with Cascadia Code for cursive
-  // "editor.fontLigatures": "'calt', 'ss01'",
+  // "editor.fontLigatures": "'calt', 'ss14'",
   "markdown.preview.fontFamily": "IBM Plex Sans, sans-serif",
 
   // disable updates
@@ -38,10 +38,11 @@
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": false,
-  "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
-  "workbench.preferredLightColorTheme": "Gruvbox Material Light",
+  "workbench.preferredDarkColorTheme": "Atom One Dark",
+  "workbench.preferredLightColorTheme": "Atom One Dark",
   "workbench.productIconTheme": "icons-carbon",
   // ext
   "catppuccin.accentColor": "mauve",
@@ -291,5 +292,5 @@
     "vs-kubernetes.crd-code-completion": "enabled",
     "vs-kubernetes.minikube-show-information-expiration": "2024-06-09T06:56:22.175Z"
   },
-  "workbench.iconTheme": "material-icon-theme"
+  "github.copilot.editor.enableAutoCompletions": true
 }

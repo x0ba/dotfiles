@@ -21,37 +21,33 @@ in
       "podman-compose"
     ];
     casks = [
-      "1password"
       "appcleaner"
-      "brave-browser"
+      "arc"
       "bettertouchtool"
-      "rectangle"
-      "bbedit"
+      "bitwarden"
       "discord"
+      "grandperspective"
+      "hazeover"
+      "hiddenbar"
       "iina"
       "imageoptim"
       "jetbrains-toolbox"
-      "marta"
-      "maccy"
-      "raycast"
       "karabiner-elements"
       "keka"
       "linearmouse"
       "mullvad-browser"
+      "notion"
+      "notion-calendar"
       "obsidian"
-      "radio-silence"
       "qbittorrent"
+      "raycast"
       "shottr"
-      "skim"
-      "tempbox"
+      "todoist"
       "utm"
       "veracrypt"
-      "marta"
       "wacom-tablet"
       "yubico-authenticator"
       (skipSha "spotify")
-      (skipSha "hazeover")
-      (skipSha "element")
     ];
     onActivation = {
       cleanup = "zap";

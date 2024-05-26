@@ -12,20 +12,24 @@
 
         cursor-style = "block";
         cursor-style-blink = true;
+
         macos-option-as-alt = true;
         clipboard-read = "allow";
         clipboard-paste-protection = false;
         confirm-close-surface = false;
 
         font-family = "JetBrains Mono";
-        font-size = 13;
+        font-size = 12;
 
         window-padding-x = 10;
         window-padding-y = 10;
 
         macos-titlebar-tabs = true;
 
-        theme = "GruvboxDark";
+        font-feature = [
+          "calt"
+          "ss14"
+        ];
       };
 
       keybindings = {

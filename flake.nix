@@ -60,7 +60,7 @@
               stylua.enable = true;
             };
           };
-          devShells.default = pkgs.mkShell {
+          devShells.default = pkgs.mkShellNoCC {
             inherit (config.pre-commit.devShell) shellHook;
             RULES = "./home/secrets/secrets.nix";
             buildInputs =
@@ -163,6 +163,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ghostty.url = "github:clo4/ghostty-hm-module";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     swayfx = {
       url = "github:willpower3309/swayfx";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -181,7 +182,6 @@
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.flake-compat.follows = "";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };

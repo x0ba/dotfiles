@@ -1,6 +1,7 @@
 { inputs }:
 [
   inputs.nix-vscode-extensions.overlays.default
+  inputs.neovim-nightly-overlay.overlays.default
   (
     final: prev:
     let

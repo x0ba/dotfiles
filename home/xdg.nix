@@ -17,6 +17,8 @@ in
       CUDA_CACHE_PATH = "${dataHome}/nv";
       DENO_INSTALL_ROOT = "${dataHome}/deno";
       DOCKER_CONFIG = "${configHome}/docker";
+      STACK_ROOT = "${dataHome}/stack";
+      WAKATIME_HOME = "${dataHome}/wakatime";
       GEM_HOME = "${dataHome}/gem";
       GEM_SPEC_CACHE = "${cacheHome}/gem";
       GOPATH = "${dataHome}/go";

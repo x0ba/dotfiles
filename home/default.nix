@@ -65,5 +65,5 @@ in
     taskwarrior.enable = true;
   };
 
-  age.secrets."wakatime.cfg".path = "${config.home.homeDirectory}/.wakatime.cfg";
+  age.secrets."wakatime.cfg".path = "${config.home.sessionVariables.WAKATIME_HOME}/.wakatime.cfg";
 }

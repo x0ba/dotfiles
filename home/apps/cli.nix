@@ -8,7 +8,14 @@ in
     sessionVariables = {
       LESS = "-R --use-color";
       LESSHISTFILE = "-";
-      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    };
+    shellAliases = {
+      # switch between yubikeys for the same GPG key
+      switch_yubikeys = ''gpg-connect-agent "scd serialno" "learn --force" "/bye"'';
+
+      # podman
+      docker = "podman";
+      docker-compose = "podman-compose";
     };
   };
 
@@ -63,8 +70,17 @@ in
       enable = true;
       settings = {
         command_timeout = 3000;
-        format = "$username$hostname$nix_shell";
+        format = "$username$hostname$nix_shell$character";
         right_format = "$directory$git_branch$git_commit$git_state$git_status";
+
+        character = {
+          success_symbol = "[λ](bold green)";
+          error_symbol = "[λ](bold red)";
+          vimcmd_symbol = "[](bold purple)";
+          vimcmd_replace_symbol = "[](bold green)";
+          vimcmd_replace_one_symbol = "[](bold green)";
+          vimcmd_visual_symbol = "[](bold yellow)";
+        };
 
         username = {
           format = "[$user]($style) ";

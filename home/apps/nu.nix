@@ -1,12 +1,15 @@
 {
   lib,
   pkgs,
-  osConfig,
   config,
   ...
 }:
 let
   plugins = "${pkgs.nu_scripts}/share/nu_scripts";
+
+  shellAliases = lib.concatStringsSep "\n" (
+    lib.mapAttrsToList (k: v: "alias ${k} = ${v}") config.home.shellAliases
+  );
 
   mkCompletions =
     completions:
@@ -43,6 +46,11 @@ let
       filename = "yarn-v4";
     }
   ];
+
+  command-not-found = pkgs.writeShellScript "command-not-found" ''
+    source ${config.programs.nix-index.package}/etc/profile.d/command-not-found.sh
+    command_not_found_handle "$@"
+  '';
 in
 {
   home.packages = [ pkgs.carapace ];
@@ -53,23 +61,15 @@ in
 
     extraConfig =
       ''
+        $env.config = ($env.config? | default {})
+        $env.config.hooks = ($env.config.hooks? | default {})
+        $env.config.hooks.command_not_found = {
+          |cmd_name| (try { ${command-not-found} $cmd_name })
+        }
         source ${plugins}/aliases/git/git-aliases.nu
       ''
+      + shellAliases
       + mkCompletions completions;
-    envFile.text = lib.optionalString (osConfig ? environment) ''
-      $env.PATH = ${
-        builtins.replaceStrings
-          [
-            "$USER"
-            "$HOME"
-          ]
-          [
-            config.home.username
-            config.home.homeDirectory
-          ]
-          osConfig.environment.systemPath
-      }
-    '';
   };
 
   xdg.configFile."nushell/config" = {
