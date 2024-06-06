@@ -18,7 +18,7 @@
         clipboard-paste-protection = false;
         confirm-close-surface = false;
 
-        font-family = "JetBrains Mono";
+        font-family = "Liga Berkeley Mono";
         font-size = 12;
 
         window-padding-x = 10;
@@ -26,10 +26,10 @@
 
         macos-titlebar-tabs = true;
 
-        font-feature = [
-          "calt"
-          "ss14"
-        ];
+        # font-feature = [
+        #   "calt"
+        #   "ss02"
+        # ];
       };
 
       keybindings = {

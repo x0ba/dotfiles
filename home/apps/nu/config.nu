@@ -1,13 +1,12 @@
+# vim:ft=nu
+
 use ($nu.default-config-dir | path join 'config/keybindings.nu')
 
-let carapace_completer = {|spans|
-  carapace $spans.0 nushell ...$spans | from json
-}
-
-$env.PROMPT_INDICATOR = {|| "λ " }
-$env.PROMPT_INDICATOR_VI_INSERT = {|| "λ " }
-$env.PROMPT_INDICATOR_VI_NORMAL = {|| "$ " }
-$env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
+# use prompt indicators from starship
+$env.PROMPT_INDICATOR = ""
+$env.PROMPT_INDICATOR_VI_INSERT = ""
+$env.PROMPT_INDICATOR_VI_NORMAL = ""
+$env.PROMPT_MULTILINE_INDICATOR = ""
 
 $env.config = {
   show_banner: false
@@ -17,27 +16,20 @@ $env.config = {
     clickable_links: true
   }
 
-  rm: {
-    always_trash: false
-  }
+  rm: { always_trash: false }
 
   table: {
-    # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
-    mode: thin
-    # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
+    mode: psql
     index_mode: auto
-    # show 'empty list' and 'empty record' placeholders for command output
     show_empty: true
-    # a left right padding of each column in a table
     padding: { left: 1, right: 1 }
     trim: {
-      methodology: truncating # `wrapping` or `truncating`
+      methodology: truncating
       truncating_suffix: "…"
     }
-    # show header text on separator/border line
-    header_on_separator: false
+    header_on_separator: true
     # limit data rows from top and bottom after reaching a set point
-    # abbreviated_row_count: 10
+    # abbreviated_row_count: 100
   }
 
   error_style: fancy
@@ -76,12 +68,7 @@ $env.config = {
     quick: true
     partial: true
     algorithm: "prefix"
-    external: {
-      enable: true
-      max_results: 50
-      completer: $carapace_completer
-    }
-    use_ls_colors: true # set this to true to enable file/path/directory completions using LS_COLORS
+    use_ls_colors: true
   }
 
   filesize: {
@@ -125,7 +112,7 @@ $env.config = {
     env_change: {
       PWD: [
         {if (".git" | path exists) {
-          onefetch --no-merges --no-bots --no-color-palette --text-colors 1 1 3 4 4
+          onefetch --no-merges --no-bots --no-color-palette --true-color=never --text-colors 1 1 3 4 4
         }}
       ]
     }

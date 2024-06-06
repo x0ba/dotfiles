@@ -18,7 +18,7 @@ in
         git-credential-gopass
         gopass
         gopass-jsonapi
-        # yubikey-personalization
+        yubikey-personalization
       ]
       ++ lib.optionals isDarwin [ pinentry_mac ]
     );

@@ -65,9 +65,8 @@
             RULES = "./home/secrets/secrets.nix";
             buildInputs =
               (with pkgs; [
-                dhall
-                dhall-lsp-server
-                dhall-yaml
+                lua-language-server
+                nvfetcher
                 just
                 nix-output-monitor
                 nixd
@@ -144,6 +143,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nekowinston-nur.url = "github:nekowinston/nur";
+    neovim = {
+      url = "github:x0ba/neovim.drv";
+    };
 
     agenix = {
       url = "github:ryantm/agenix";
@@ -179,6 +181,11 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.flake-compat.follows = "";

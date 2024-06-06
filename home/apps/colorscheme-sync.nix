@@ -7,20 +7,21 @@
 let
   inherit (pkgs.stdenv) isDarwin isLinux;
 
-  vividBuilder =
-    flavor:
-    pkgs.runCommand "vivid-${flavor}" {
-      nativeBuildInputs = [ pkgs.vivid ];
-    } ''vivid generate ${pkgs.vivid.src}/themes/catppuccin-${flavor}.yml > $out '';
-  vividLatte = vividBuilder "latte";
-  vividMocha = vividBuilder "mocha";
+  milspec = (pkgs.callPackage ../../_sources/generated.nix { }).milspec;
+
+  vividMilspec = pkgs.runCommand "vivid-catppuccin" { nativeBuildInputs = [ pkgs.vivid ]; } ''
+    mkdir -p $out
+    for variant in dark light; do
+      vivid generate "${milspec.src}/extras/vivid/milspec-''${variant}.yml" > "$out/''${variant}"
+    done
+  '';
 in
 {
   config = lib.mkIf config.isGraphical {
     home.packages = [
       (pkgs.writeShellApplication {
         name = "dark-mode-ternary";
-        runtimeInputs = [
+        runtimeInputs = lib.optionals isLinux [
           pkgs.dbus
           pkgs.gnugrep
         ];
@@ -50,24 +51,57 @@ in
       enable = isLinux;
       settings = {
         lat = config.location.latitude;
-        lon = config.location.longitude;
+        lng = config.location.longitude;
         useGeoclue = false;
+      };
+      lightModeScripts = {
+        gtk-theme = ''
+          ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+        '';
+      };
+      darkModeScripts = {
+        gtk-theme = ''
+          ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+        '';
       };
     };
 
-    programs.zsh = {
-      initExtra = ''
-        zadm_sync() {
-          BAT_THEME="Catppuccin $(dark-mode-ternary Mocha Latte)"
-          LS_COLORS="$(cat $(dark-mode-ternary ${vividMocha} ${vividLatte}))"
-          STARSHIP_CONFIG__PALETTE="catppuccin_$(dark-mode-ternary mocha latte)"
+    xdg.configFile."fsh".source = "${milspec.src}/extras/zsh-fast-syntax-highlighting";
+    programs.zsh.initExtra = ''
+      zadm_sync() {
+        local flavor="$(dark-mode-ternary mocha latte)"
+        local variant="$(dark-mode-ternary dark light)"
 
-          export BAT_THEME LS_COLORS STARSHIP_CONFIG__PALETTE
+        export BAT_THEME="Catppuccin ''${(C)flavor}"
+        export LS_COLORS="$(cat "${vividMilspec}/''${variant}")"
+        export STARSHIP_CONFIG__PALETTE="milspec_''${variant}"
 
-          fast-theme "XDG:catppuccin-$(dark-mode-ternary mocha latte)" >/dev/null
+        fast-theme "XDG:milspec-''${variant}" >/dev/null
+      }
+      add-zsh-hook precmd zadm_sync
+    '';
+
+    programs.nushell.extraConfig = ''
+      use ${milspec.src}/extras/nu/milspec.nu
+
+      $env.config = ($env.config? | default {})
+
+      $env.config.color_config = (milspec -R dark)
+
+      $env.config.hooks = ($env.config.hooks? | default {})
+      $env.config.hooks.pre_prompt = (
+        $env.config.hooks.pre_prompt?
+        | default []
+        | append {||
+          let flavor = dark-mode-ternary "mocha" "latte"
+          let variant = dark-mode-ternary "dark" "light"
+
+          $env.config.color_config = (milspec -R $variant)
+          $env.BAT_THEME = "Catppuccin " + ($flavor | str capitalize)
+          $env.STARSHIP_CONFIG__PALETTE = "milspec_" + $variant
+          $env.LS_COLORS = (cat $"${vividMilspec}/($variant)")
         }
-        add-zsh-hook precmd zadm_sync
-      '';
-    };
+      )
+    '';
   };
 }

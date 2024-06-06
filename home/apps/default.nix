@@ -3,6 +3,7 @@
     ./browsers.nix
     # ./colorscheme-sync.nix
     ./fish.nix
+    ./discord.nix
     ./fonts.nix
     ./ghostty.nix
     ./git.nix

@@ -1,11 +1,11 @@
-{ ... }:
+{ pkgs, lib, ... }:
 {
   imports = [ ./options.nix ];
-
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
 
   system.stateVersion = 4;
+
   security.pam.enableSudoTouchIdAuth = true;
   system.defaults.alf.stealthenabled = 1;
 

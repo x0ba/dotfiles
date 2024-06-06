@@ -20,11 +20,14 @@ in
       # to still manage it via home-manager
       package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
       profiles.default = {
-        search.default = "DuckDuckGo";
+        search.default = "Google";
         search.force = true;
         extraConfig = ''
           /** GENERAL ***/
           user_pref("content.notify.interval", 100000);
+
+          /** CSS ***/
+          user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 
           /** GFX ***/
@@ -233,16 +236,22 @@ in
           user_pref("findbar.highlightAll", true);
           user_pref("layout.word_select.eat_space_to_next_word", false);
         '';
+        userChrome = ''
+          #TabsToolbar {
+            visibility: collapse;
+          }
+        '';
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
-          bitwarden
+          onepassword-password-manager
+          tab-stash
           df-youtube
           languagetool
           multi-account-containers
           refined-github
           temporary-containers
           ublock-origin
-          vimium
+          tridactyl
         ];
       };
     };

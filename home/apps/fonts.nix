@@ -9,10 +9,9 @@
     home.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
       ibm-plex
-      iosevka
       cascadia-code
+      atkinson-hyperlegible
       jetbrains-mono
-      hack-font
     ];
   };
 }

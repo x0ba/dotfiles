@@ -29,8 +29,27 @@ in
         sync_frequency = "5m";
       };
     };
-    bat.enable = true;
-
+    bat = {
+      enable = true;
+      themes = {
+        "Catppuccin Latte" = {
+          src = "${srcs.catppuccin-bat.src}/themes";
+          file = "Catppuccin Latte.tmTheme";
+        };
+        "Catppuccin Frappe" = {
+          src = "${srcs.catppuccin-bat.src}/themes";
+          file = "Catppuccin Frappe.tmTheme";
+        };
+        "Catppuccin Macchiato" = {
+          src = "${srcs.catppuccin-bat.src}/themes";
+          file = "Catppuccin Macchiato.tmTheme";
+        };
+        "Catppuccin Mocha" = {
+          src = "${srcs.catppuccin-bat.src}/themes";
+          file = "Catppuccin Mocha.tmTheme";
+        };
+      };
+    };
     btop = {
       enable = true;
       settings = {
@@ -55,6 +74,18 @@ in
 
     fzf = {
       enable = true;
+      colors = {
+        fg = "#cdd6f4";
+        "fg+" = "#cdd6f4";
+        hl = "#f38ba8";
+        "hl+" = "#f38ba8";
+        header = "#ff69b4";
+        info = "#cba6f7";
+        marker = "#f5e0dc";
+        pointer = "#f5e0dc";
+        prompt = "#cba6f7";
+        spinner = "#f5e0dc";
+      };
       defaultOptions = [
         "--height=30%"
         "--layout=reverse"

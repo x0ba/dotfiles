@@ -85,7 +85,6 @@ in
           '';
         }))
         adrianwilczynski.alpine-js-intellisense
-        sainnhe.gruvbox-material
         akamud.vscode-theme-onedark
         antfu.icons-carbon
         arcanis.vscode-zipfs
