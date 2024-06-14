@@ -1,479 +1,63 @@
-'$schema' = 'https://starship.rs/config-schema.json'
+"$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[┌](gray)\
+$hostname \
+[✦ ](white)\
+$shell\
 $directory\
-$username\
-$hostname\
-$container\
-\
 $git_branch\
-$git_commit\
-$git_state\
 $git_status\
-$git_metrics\
-$hg_branch\
-$vcsh\
-\
-$cmd_duration\
-$jobs\
-$sudo\
-$shlvl\
-$status\
-\
-$buf\
-$bun\
-$c\
-$cmake\
-$cobol\
-$crystal\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$fennel\
-$golang\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$red\
-$ruby\
-$rust\
-$scala\
-$spack\
-$swift\
-$vagrant\
-$vlang\
-$zig\
-\
-(${env_var.incognito}\
-$package\
-$nix_shell\
-$aws\
-$azure\
-$docker_context\
-$kubernetes\
-$terraform)\
-\
-$line_break\
-\
-[└](gray)\
-$character"""
-
-add_newline = true
-continuation_prompt = '[>](bold gray) '
-palette = "milspec_dark"
-
-[character]
-success_symbol = '[λ](bold fg)'
-error_symbol = '[λ](bold red)'
-vimcmd_symbol = '[](bold turquoise)'
-
-[time]
-format = ' [$time]($style) '
-style = 'fg:gray'
-disabled = true
-
+$character
+"""
 [directory]
-format = '[$path ]($style)[($read_only)]($read_only_style)'
-style = 'fg:red'
-read_only = ' '
-read_only_style = 'fg:red'
-truncate_to_repo = true
-use_os_path_sep = false
+style = "blue"
+format = "[$path ]($style)"
+truncation_length = 99
+truncation_symbol = "…/"
+truncate_to_repo = false
 
-[username]
-format = '[$user ]($style)'
-style_root = 'fg:red'
-style_user = 'fg:red'
-
-[hostname]
-format = '[$ssh_symbol$hostname ]($style)'
-style = 'fg:red'
-ssh_symbol = '@'
-
-[container]
-format = '[$hostname ]($style)'
-style = 'fg:red'
-
-### VCS
 [git_branch]
-format = '[$symbol$branch ]($style)'
-style = 'fg:orange'
-symbol = ' '
-ignore_branches = ['main', 'master']
-
-[hg_branch]
-format = '[$symbol$branch ]($style)'
-style = 'fg:orange'
-
-[git_commit]
-format = '[$tag ]($style)'
-style = 'fg:orange'
-tag_disabled = false
-tag_symbol = ' '
-
-[git_state]
-format = '[\[$state($progress_current/$progress_total)\] ]($style)'
-style = 'fg:orange'
-disabled = false
+symbol = ""
+style = ""
+format = '[[$symbol $branch ](green)]($style)'
 
 [git_status]
-format = '[$all_status$ahead_behind]($style)'
-style = 'fg:orange'
-ahead = ' '
-behind = ' '
-conflicted = '󰩌 '
-deleted = '󱪢 '
-diverged = '󱐎 '
-modified = '󱇨 '
-renamed = '󱀱 '
-untracked = '󰻭 '
-staged = '󱧳 '
-stashed = '󱧶 '
-disabled = false
+style = ""
+ahead = '[󰁞${count}](blue)'
+behind = '[󰁆${count}](yellow)'
+untracked = '[?${count}](purple)'
+modified = '[~${count}](yellow)'
+staged = '[+${count}](cyan)'
+renamed = '[*${count}](purple)'
+deleted = '[-${count}](red)'
+conflicted = '[󱓌${count}](red)'
+format = '([\[$all_status$ahead_behind\]]($style) )'
 
-### SHELL STATUS
+[time]
+disabled = false
+time_format = "%R:%S"
+format = '[ 󱑒 $time ](purple)'
+
+[character]
+disabled = false
+success_symbol = '[→](bold green)'
+error_symbol = '[→](bold red)'
+
 [cmd_duration]
-format = '[ $duration ]($style)'
-style = 'fg:gold'
-show_milliseconds = true
-min_time = 2000
+min_time = 500
+format = '[took](yellow) [$duration](bold yellow)'
 
-[jobs]
-disabled = false
-symbol = ' '
-style = 'fg:gold'
-
-[shlvl]
-disabled = false
-format = '[$symbol$shlvl]($style) '
-style = 'fg:gold'
-symbol = ' '
-threshold = 3
-
-[status]
-format = '[$symbol$status]($style) '
-style = 'fg:gold'
-not_executable_symbol = ' '
-not_found_symbol = ' '
-sigint_symbol = ' '
-signal_symbol = '󰞁 '
-symbol = '󰌑 '
-map_symbol = false
-disabled = true
-
-[sudo]
-disabled = false
-format = '[$symbol ]($style)'
-style = 'fg:gold'
-symbol = ' '
-
-### LANGUAGE VERSION INDICATORS
-[buf]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-
-[bun]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-
-[c]
-format = '[$symbol($version(-$name)) ]($style)'
-style = 'fg:green'
-symbol = '󰙱 '
-
-[cmake]
-format = '[$symbol($version) ]($style)'
-symbol = '△'
-style = 'fg:green'
-
-[cobol]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-
-[conda]
-format = '[$symbol$environment ]($style)'
-style = 'fg:green'
-
-[crystal]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[dart]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[deno]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-
-[dotnet]
-format = '[$symbol($version)( $tfm) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[elixir]
-format = '[$symbol($version \(OTP $otp_version\)) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[elm]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[erlang]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[fennel]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-
-[golang]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[haskell]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[haxe]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[helm]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = '󱃾 '
-
-[java]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[julia]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[kotlin]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[lua]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[nim]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[nix_shell]
-format = '[$symbol$state($name) ]($style)'
-style = 'fg:blue'
-symbol = '󱄅 '
-impure_msg = ''
-pure_msg = 'pure '
-
-[nodejs]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = '󰎙 '
-
-[ocaml]
-format = '[$symbol($version)(\($switch_indicator$switch_name\)) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[perl]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[php]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[purescript]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[python]
-format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\)) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[red]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = '󱥒 '
-
-[ruby]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[rust]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[scala]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[spack]
-format = '[$symbol$environment ]($style)'
-style = 'fg:green'
-
-[swift]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-[vagrant]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-
-[vlang]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-
-[zig]
-format = '[$symbol($version) ]($style)'
-style = 'fg:green'
-symbol = ' '
-
-### PACKAGE INDICATORS
-[package]
-symbol = ' '
-format = '[$symbol$version ]($style)'
-style = 'fg:blue'
+[shell]
+zsh_indicator = 'zsh'
+nu_indicator = 'nu'
+unknown_indicator = '<?>'
+style = 'yellow'
 disabled = false
 
-### CONTEXT INDICATORS
-[env_var.incognito]
-format = '[$symbol ]($style)'
-variable = 'ZSH_INCOGNITO'
-style = 'fg:blue'
-symbol = '󰗹 '
-
-# these have `disabled` added so we can toggle them via `starship toggle <name>`
-[aws]
+[line_break]
 disabled = false
-format = '[$symbol($profile)(\($region\))(\[$duration\]) ]($style)'
-style = 'fg:violet'
-symbol = ' '
 
-[azure]
-disabled = true
-format = '[$symbol($subscription)]($style)'
-style = 'fg:violet'
-symbol = ' '
-
-[docker_context]
-disabled = false
-format = '[$symbol$context ]($style)'
-style = 'fg:violet'
-symbol = ' '
-
-[gcloud]
-disabled = false
-format = '[$symbol$account(@$domain)(\($region\)) ]($style)'
-style = 'fg:violet'
-symbol = ' '
-
-[kubernetes]
-disabled = false
-format = '[$symbol($cluster/$namespace) ]($style)'
-style = 'fg:violet'
-symbol = '󱃾 '
-
-[openstack]
-disabled = false
-format = '[$symbol$cloud(\($project\)) ]($style)'
-style = 'fg:violet'
-symbol = ' '
-
-[pulumi]
-disabled = false
-format = '[$symbol$stack ]($style)'
-style = 'fg:blue'
-
-[terraform]
-disabled = false
-format = '[$symbol$workspace ]($style)'
-style = 'fg:violet'
-symbol = '󱁢 '
-
-### COLOR PALETTES
-[palettes.milspec_light]
-fg = "#111418"
-bg = "#f6f7f9"
-gray = "#5f6b7c"
-bgGray = "#d3d8de"
-fgGray = "#404854"
-core = "#ffffff"
-blue = "#2d72d2"
-green = "#238551"
-orange = "#c87619"
-red = "#cd4246"
-vermilion = "#d33d17"
-rose = "#db2c6f"
-violet = "#9d3f9d"
-indigo = "#7961db"
-cerulean = "#147eb3"
-turquoise = "#00a396"
-forest = "#29a634"
-lime = "#8eb125"
-gold = "#d1980b"
-sepia = "#946638"
-
-[palettes.milspec_dark]
-fg = "#ffffff"
-bg = "#1c2127"
-gray = "#c5cbd3"
-bgGray = "#404854"
-fgGray = "#d3d8de"
-core = "#111418"
-blue = "#8abbff"
-green = "#72ca9b"
-orange = "#fbb360"
-red = "#fa999c"
-vermilion = "#ff9980"
-rose = "#ff66a1"
-violet = "#d69fd6"
-indigo = "#bdadff"
-cerulean = "#68c1ee"
-turquoise = "#7ae1d8"
-forest = "#62d96b"
-lime = "#d4f17e"
-gold = "#fbd065"
-sepia = "#d0b090"
+[hostname]
+ssh_only = false
+format = '[$hostname]($style)'
+style = 'bold green'

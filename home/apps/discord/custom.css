@@ -22,8 +22,3 @@
     display: none;
   }
 }
-
-main[class^="chatContent_"] form div[class^="buttons_"],
-main[class^="chatContent_"] form div[class^="attachWrapper_"] {
-  display: none;
-}

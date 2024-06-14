@@ -20,21 +20,24 @@
   "search.useParentIgnoreFiles": true,
   "terminal.integrated.smoothScrolling": true,
   // fonts
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "editor.inlayHints.fontSize": 8,
   "terminal.integrated.fontSize": 13,
-  "editor.fontFamily": "MonoLisa, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
   // Use these with Cascadia Code for cursive
-  "editor.fontLigatures": "'calt', 'ss02'",
-  "markdown.preview.fontFamily": "IBM Plex Sans, sans-serif",
+  "editor.fontLigatures": "'calt', 'ss01'",
+  "markdown.preview.fontFamily": "Atkinson Hyperlegible, sans-serif",
   // disable updates
   "update.mode": "none",
   "extensions.autoUpdate": false,
   "extensions.autoCheckUpdates": false,
   // appearance settings
+  // ext
+  // appearance settings
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "Atom One Dark",
   "workbench.layoutControl.enabled": false,
   "workbench.preferredDarkColorTheme": "Atom One Dark",
   "workbench.preferredLightColorTheme": "Atom One Dark",
@@ -126,9 +129,7 @@
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "editor.rulers": [
-      120
-    ],
+    "editor.rulers": [120],
     "editor.semanticHighlighting.enabled": true
   },
   "rust-analyzer.check.command": "clippy",
@@ -137,215 +138,20 @@
     "editor.snippetSuggestions": "top",
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // vim mode
-  "vim.camelCaseMotion.enable": true,
-  "vim.handleKeys": {
-    "<C-a>": true,
-    "<C-d>": true,
-    "<C-u>": true,
-    "<C-v>": true,
-    "<C-w>": true,
-    "<C-x>": true
-  },
-  "vim.highlightedyank.color": "rgba(128, 128, 128, 0.8)",
-  "vim.highlightedyank.enable": true,
-  "vim.hlsearch": true,
-  "vim.incsearch": true,
-  "vim.insertModeKeyBindings": [],
-  "vim.leader": "<space>",
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "r",
-        "h"
-      ],
-      "commands": [
-        "git.revertSelectedRanges"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "y"
-      ],
-      "commands": [
-        "editor.action.clipboardCopyAction"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "p"
-      ],
-      "commands": [
-        "editor.action.clipboardPasteAction"
-      ]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "g",
-        "r"
-      ],
-      "commands": [
-        "editor.action.goToReferences"
-      ]
-    },
-    {
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "f",
-        "d"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "f",
-        "t"
-      ],
-      "commands": [
-        "workbench.action.selectTheme"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "n",
-        "f"
-      ],
-      "commands": [
-        "editor.action.formatDocument"
-      ]
-    },
-    {
-      "before": [
-        "[",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.prev"
-      ]
-    },
-    {
-      "before": [
-        "]",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.next"
-      ]
-    },
-    {
-      "before": [
-        "[",
-        "c"
-      ],
-      "commands": [
-        "workbench.action.editor.previousChange"
-      ]
-    },
-    {
-      "before": [
-        "]",
-        "c"
-      ],
-      "commands": [
-        "workbench.action.editor.nextChange"
-      ]
-    },
-    {
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ]
-    },
-    {
-      "before": [
-        "<C-h>"
-      ],
-      "commands": [
-        "workbench.action.focusLeftGroup"
-      ]
-    },
-    {
-      "before": [
-        "<C-j>"
-      ],
-      "commands": [
-        "workbench.action.focusBelowGroup"
-      ]
-    },
-    {
-      "before": [
-        "<C-k>"
-      ],
-      "commands": [
-        "workbench.action.focusAboveGroup"
-      ]
-    },
-    {
-      "before": [
-        "<C-l>"
-      ],
-      "commands": [
-        "workbench.action.focusRightGroup"
-      ]
-    },
-    {
-      "before": [
-        "<C-W>",
-        "\\"
-      ],
-      "commands": [
-        "workbench.action.splitEditorRight"
-      ]
-    },
-    {
-      "before": [
-        "<C-W>",
-        "-"
-      ],
-      "commands": [
-        "workbench.action.splitEditorDown"
-      ]
-    }
-  ],
-  "vim.replaceWithRegister": true,
-  "vim.smartRelativeLine": true,
   // vscord
-  "vscord.app.whitelist": [
-    "505490445468696576"
-  ],
+  "vscord.app.whitelist": ["505490445468696576"],
   "vscord.app.whitelistEnabled": true,
   "vscord.ignore.workspaces": [
-    "/Users/winston/Code/freelance",
-    "/Users/winston/Code/work",
-    "/home/winston/Code/freelance",
-    "/home/winston/Code/work"
+    "/Users/daniel/Code/freelance",
+    "/Users/daniel/Code/work",
+    "/home/daniel/Code/freelance",
+    "/home/daniel/Code/work"
   ],
   "vscord.ignore.workspacesText": {
-    "/Users/winston/Code/freelance": "Freelancing",
-    "/Users/winston/Code/work": "Working",
-    "/home/winston/Code/freelance": "Freelancing",
-    "/home/winston/Code/work": "Working"
+    "/Users/daniel/Code/freelance": "Freelancing",
+    "/Users/daniel/Code/work": "Working",
+    "/home/daniel/Code/freelance": "Freelancing",
+    "/home/daniel/Code/work": "Working"
   },
   "vscord.status.buttons.button1.git.active.enabled": true,
   "vscord.status.idle.check": true,
@@ -376,5 +182,29 @@
         }
       ]
     }
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.neovimExecutablePaths.darwin": "/etc/profiles/per-user/daniel/bin/nvim",
+  "vscode-neovim.neovimClean": true,
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape"
+    },
+    "jk": {
+      // Use lua to execute any logic
+      "command": "vscode-neovim.lua",
+      "args": [
+        [
+          "local code = require('vscode')",
+          "code.action('vscode-neovim.escape')",
+          "code.action('workbench.action.files.save')"
+        ]
+      ]
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

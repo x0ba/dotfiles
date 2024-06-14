@@ -9,7 +9,7 @@
     flake-parts.lib.mkFlake { inherit self inputs; } {
       flake = mkSystems [
         {
-          host = "fermata";
+          host = "seraphim";
           system = "aarch64-darwin";
           username = "daniel";
           isGraphical = true;

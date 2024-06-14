@@ -13,17 +13,18 @@
     };
     date = "2024-04-25";
   };
-  milspec = {
-    pname = "milspec";
-    version = "89b7d29dad6708c04821cbf8ba8c80294f8d1733";
-    src = fetchFromGitHub {
-      owner = "nekowinston";
-      repo = "milspec.nvim";
-      rev = "89b7d29dad6708c04821cbf8ba8c80294f8d1733";
+  catppuccin-wezterm = {
+    pname = "catppuccin-wezterm";
+    version = "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da";
+    src = fetchgit {
+      url = "https://github.com/catppuccin/wezterm";
+      rev = "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da";
       fetchSubmodules = false;
-      sha256 = "sha256-GWto6Y+2ZJXgTbOApQrhzsBT9sPENhgqoD6SSxykAVE=";
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-McSWoZaJeK+oqdK/0vjiRxZGuLBpEB10Zg4+7p5dIGY=";
     };
-    date = "2024-05-30";
+    date = "2023-04-12";
   };
   nekowinston-wezterm-bar = {
     pname = "nekowinston-wezterm-bar";

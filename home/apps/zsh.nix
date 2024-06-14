@@ -58,20 +58,6 @@ in
       '';
 
     dotDir = ".config/zsh";
-    oh-my-zsh = {
-      enable = true;
-      plugins =
-        [
-          "colored-man-pages"
-          "colorize"
-          "git"
-          "kubectl"
-        ]
-        ++ lib.optionals pkgs.stdenv.isDarwin [
-          "dash"
-          "macos"
-        ];
-    };
     plugins = zshPlugins [
       {
         src = pkgs.zsh-vi-mode;

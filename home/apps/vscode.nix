@@ -16,6 +16,7 @@ in
 {
   programs.vscode = {
     enable = config.isGraphical;
+    package = pkgs.vscodium;
     extensions =
       (with pkgs.vscode-extensions; [
         # patches
@@ -121,7 +122,7 @@ in
         tomoki1207.pdf
         unifiedjs.vscode-mdx
         usernamehw.errorlens
-        vscodevim.vim
+        asvetliakov.vscode-neovim
         wakatime.vscode-wakatime
         webfreak.code-d
       ]);
@@ -129,22 +130,22 @@ in
   };
 
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/Code/User/keybindings.json".source = keybindingsJSON;
-    "Library/Application Support/Code/User/settings.json".source = settingsJSON;
-    "Library/Application Support/Code/User/snippets" = {
+    "Library/Application Support/VSCodium/User/keybindings.json".source = keybindingsJSON;
+    "Library/Application Support/VSCodium/User/settings.json".source = settingsJSON;
+    "Library/Application Support/VSCodium/User/snippets" = {
       source = snippetsDir;
       recursive = true;
     };
   };
   xdg.configFile = lib.mkIf isLinux {
-    "Code/User/keybindings.json".source = keybindingsJSON;
-    "Code/User/settings.json".source = settingsJSON;
-    "Code/User/snippets" = {
+    "VSCodium/User/keybindings.json".source = keybindingsJSON;
+    "VSCodium/User/settings.json".source = settingsJSON;
+    "VSCodium/User/snippets" = {
       source = snippetsDir;
       recursive = true;
     };
   };
-  xdg.mimeApps.defaultApplications."text/plain" = "code.desktop";
+  xdg.mimeApps.defaultApplications."text/plain" = "codium.desktop";
 
   services.vscode-server = {
     # when using a non-nixOS system, there's no need to patch the server

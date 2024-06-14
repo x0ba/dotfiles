@@ -44,6 +44,7 @@ in
         plugin = jump;
         extraConfig = "set -g @jump-key 'f'";
       }
+      { plugin = vim-tmux-navigator; }
       {
         plugin = open;
         extraConfig = "set -g @open-S 'https://duckduckgo.com/?q='";
@@ -53,13 +54,15 @@ in
         extraConfig = "set -g @urlview-key 'u'";
       }
       {
-        plugin = themepack;
-        extraConfig = "set -g @themepack 'basic'";
+        plugin = catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_status_modules_right "application session"
+          set -g @catppuccin_status_modules_left ""
+        '';
       }
     ];
     terminal = "tmux-256color";
 
-    clock24 = true;
     mouse = true;
 
     keyMode = "vi";
@@ -70,6 +73,10 @@ in
       set-option -g terminal-overrides ',xterm-256color:RGB'
       set-option -g focus-events on
       set-option -sg escape-time 10
+
+      # set default shell to fish
+      set -g default-shell ${pkgs.fish}/bin/fish
+      set -g default-command ${pkgs.fish}/bin/fish
 
       # some nice settings
       set-option -g focus-events on
@@ -98,10 +105,14 @@ in
       )\""
 
       # couple of vi mode keybinds
-      unbind -T copy-mode-vi Space; # Default for begin-selection
-      unbind -T copy-mode-vi Enter; # Default for copy-selection
-      bind -T copy-mode-vi v send-keys -X begin-selection
-      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "clipcopy"
+      setw -g mode-keys vi
+      bind-key h select-pane -L
+      bind-key j select-pane -D
+      bind-key k select-pane -U
+      bind-key l select-pane -R
+
+      # toggle status bar
+      bind b set -g status
     '';
   };
 }

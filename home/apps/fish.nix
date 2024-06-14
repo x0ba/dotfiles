@@ -1,17 +1,7 @@
 { pkgs, config, ... }:
 {
-  home.sessionVariables = {
-    LC_ALL = "en_US.UTF-8";
-    LC_CTYPE = "en_US.UTF-8";
-    PROJECTS = "$HOME/c";
-  };
   programs.fish = {
     enable = true;
-    shellInit = ''
-      if test -f ~/.localrc.fish
-          source ~/.localrc.fish
-      end
-    '';
     interactiveShellInit = ''
       # disable fish greeting
       set fish_greeting
@@ -21,6 +11,10 @@
         name = "autopair";
         src = pkgs.fishPlugins.autopair-fish.src;
       }
+      {
+        name = "tide";
+        src = pkgs.fishPlugins.tide.src;
+      }
     ];
     shellAliases = {
       # docker
@@ -29,6 +23,7 @@
 
       # git
       g = "git";
+      gcl = "git clone";
       gl = "git pull --prune";
       glg = "git log --graph --decorate --oneline --abbrev-commit";
       glga = "glg --all";
@@ -51,52 +46,14 @@
       egms = "e; git switch (git main-branch); and git sync";
       gwc = "git switch -c";
 
-      # go
-      gmt = "go mod tidy";
-      grm = "go run ./...";
-
-      # kubectl
-      kx = "kubectx";
-      kn = "kubens";
-      k = "kubectl";
-      sk = "kubectl -n kube-system";
-      kg = "kubectl get";
-      kgp = "kubectl get po";
-      kga = "kubectl get --all-namespaces";
-      kd = "kubectl describe";
-      kdp = "kubectl describe po";
-      krm = "kubectl delete";
-      ke = "kubectl edit";
-      kex = "kubectl exec -it";
-      kdebug = ''
-        kubectl run -i -t debug --rm --image=caarlos0/debug --restart=Never
-      '';
-      knrunning = "kubectl get pods --field-selector=status.phase!=Running";
-      kfails = ''
-        kubectl get po -owide --all-namespaces | grep "0/" | tee /dev/tty | wc -l
-      '';
-      kimg = ''
-        kubectl get deployment --output=jsonpath='{.spec.template.spec.containers[*].image}'
-      '';
-      kvs = "kubectl view-secret";
-      kgno = "kubectl get no --sort-by=.metadata.creationTimestamp";
-      kdrain = "kubectl drain --ignore-daemonsets --delete-local-data";
-
       # neovim
       e = "nvim";
       v = "nvim";
-
-      # terraform
-      tf = "terraform";
 
       # tmux
       sf = "sesh connect $(sesh list | fzf)";
       sc = "sesh connect";
       s = "sesh";
     };
-  };
-
-  xdg.configFile."fish/functions" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./fish/functions;
   };
 }

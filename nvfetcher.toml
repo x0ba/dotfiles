@@ -2,9 +2,9 @@
 src.git = "https://github.com/catppuccin/bat"
 fetch.github = "catppuccin/bat"
 
-[milspec]
-src.git = "https://github.com/nekowinston/milspec.nvim"
-fetch.github = "nekowinston/milspec.nvim"
+[catppuccin-wezterm]
+src.git = "https://github.com/catppuccin/wezterm"
+fetch.git = "https://github.com/catppuccin/wezterm"
 
 [nekowinston-wezterm-bar]
 src.git = "https://github.com/nekowinston/wezterm-bar"

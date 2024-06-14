@@ -19,11 +19,11 @@
         },
         "version": "d714cc1d358ea51bfc02550dabab693f70cccea0"
     },
-    "milspec": {
+    "catppuccin-wezterm": {
         "cargoLocks": null,
-        "date": "2024-05-30",
+        "date": "2023-04-12",
         "extract": null,
-        "name": "milspec",
+        "name": "catppuccin-wezterm",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -31,13 +31,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "nekowinston",
-            "repo": "milspec.nvim",
-            "rev": "89b7d29dad6708c04821cbf8ba8c80294f8d1733",
-            "sha256": "sha256-GWto6Y+2ZJXgTbOApQrhzsBT9sPENhgqoD6SSxykAVE=",
-            "type": "github"
+            "rev": "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da",
+            "sha256": "sha256-McSWoZaJeK+oqdK/0vjiRxZGuLBpEB10Zg4+7p5dIGY=",
+            "type": "git",
+            "url": "https://github.com/catppuccin/wezterm"
         },
-        "version": "89b7d29dad6708c04821cbf8ba8c80294f8d1733"
+        "version": "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da"
     },
     "nekowinston-wezterm-bar": {
         "cargoLocks": null,

@@ -5,12 +5,12 @@ local utils = require("config.utils")
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Liga Berkeley Mono",
-  -- "Cascadia Code",
+  "IBM Plex Mono",
   "Symbols Nerd Font",
 })
 c.front_end = "WebGpu"
 c.font_size = 13
+c.default_prog = { "/etc/profiles/per-user/daniel/bin/fish" }
 -- c.harfbuzz_features = { "calt=1", "ss01=1" }
 c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {
@@ -35,7 +35,7 @@ end
 c.use_fancy_tab_bar = false
 c.tab_bar_at_bottom = true
 
-require("milspec.plugin").apply_to_config(c, { sync = true })
+require("catppuccin.plugin").apply_to_config(c, { sync = false })
 
 -- folke/zen-mode.nvim
 wezterm.on("user-var-changed", function(window, pane, name, value)
