@@ -1,0 +1,12 @@
+{{- if ne .chezmoi.os "linux" }}
+# ignore linux configuration
+.config/i3/
+.config/niri/
+.config/rofi/
+.config/waybar/
+.config/mpv/
+{{- end }}
+{{- if ne .chezmoi.os "darwin" }}
+# ignore macOS configuration
+.config/ghostty/
+{{- end }}

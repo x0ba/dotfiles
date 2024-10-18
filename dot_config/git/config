@@ -1,0 +1,52 @@
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    features= gruvbox-dark
+[pull]
+	rebase = false
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[credential]
+	helper = store
+[user]
+	email = danielxu0307@proton.me
+	name = Daniel Xu
+	signingkey = 0x660DBDE129F4E1D9
+
+[init]
+	defaultBranch = main
+[advice]
+	detachedHead = false
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[push]
+	followTags = true
+[alias]
+	graph = log --graph --oneline --all
+	browse = !git log --color=always --pretty=\"format:%C(auto)%h%d %s\" | fzf --ansi --no-sort --with-nth=2.. --layout=reverse --preview=\"git show --color=always --decorate {1}\"
+	amend = commit --amend
+
+[status]
+	short = true
+	branch = true
+	aheadBehind = true
+	renames = true
+	showStash = true
+	showUntrackedFiles = normal
+
+[include]
+	path = .local.gitconfig
+
+# vim: set noet sw=8 ts=8 :
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

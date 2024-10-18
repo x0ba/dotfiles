@@ -1,0 +1,18 @@
+font-family = JetBrains Mono
+font-size = 10
+
+theme = catppuccin-mocha
+
+cursor-style = bar
+command = zsh
+window-theme = dark
+confirm-close-surface = false
+macos-titlebar-style = tabs
+gtk-titlebar = false
+gtk-single-instance = true
+window-save-state = never
+window-padding-x = 10
+window-padding-y = 10
+window-height = 30
+window-width = 120
+
