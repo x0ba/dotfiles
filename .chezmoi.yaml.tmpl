@@ -1,0 +1,21 @@
+# vim:ft=yaml:fenc=utf-8:fdm=marker
+encryption: gpg
+
+gpg:
+  recipient: danielxu0307@proton.me
+
+edit:
+  command: nvim
+diff:
+  command: nvim
+  args:
+    - "-d"
+    - "{{`{{ .Destination }}`}}"
+    - "{{`{{ .Target }}`}}"
+merge:
+  command: nvim
+  args:
+    - "-d"
+    - "{{`{{ .Destination }}`}}"
+    - "{{`{{ .Source }}"
+    - "{{ .Target }}`}}"

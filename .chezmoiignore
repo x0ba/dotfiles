@@ -1,3 +1,4 @@
+README.md
 {{- if ne .chezmoi.os "linux" }}
 # ignore linux configuration
 .config/i3/
