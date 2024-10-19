@@ -19,7 +19,6 @@ export SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 
-[ -x "$(command -v thefuck)" ] && eval "$(thefuck --alias)"
 [ -x "$(command -v zoxide)" ] && eval "$(zoxide init zsh)"
 [ -x "$(command -v atuin)" ] && eval "$(atuin init zsh)"
 # }}}
