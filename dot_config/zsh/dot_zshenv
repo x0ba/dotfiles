@@ -19,7 +19,7 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 
 ### macOS {{{
-if [[ -x "$(command -v brew)" ]]; then
-  export PATH="/opt/homebrew/bin:$PATH"
+if [[ -d /opt/homebrew/ ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 #}}}
