@@ -2,6 +2,9 @@ name: Build Demo Dockerfile
 
 on: [workflow_dispatch]
 
+permissions:
+  actions: write
+
 jobs:
   build-demo-dockerfile:
     runs-on: ubuntu-latest
