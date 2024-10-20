@@ -20,7 +20,7 @@ RUN pacman -S --noconfirm \
   nodejs \
   npm \
   python \
-  ranger \
+  yazi \
   ripgrep \
   tree-sitter-cli \
   unzip \

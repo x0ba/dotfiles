@@ -22,8 +22,8 @@
 ;; accept. For example:
 ;;
 ;;
-(setq doom-font (font-spec :family "JetBrains Mono" :size (if (eq system-type 'darwin) 12 14))
-      doom-variable-pitch-font (font-spec :family "Inter" :size (if (eq system-type 'darwin) 12 14)))
+(setq doom-font (font-spec :family "JetBrains Mono" :size (if (eq system-type 'darwin) 12 15))
+      doom-variable-pitch-font (font-spec :family "Inter" :size (if (eq system-type 'darwin) 12 15)))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
