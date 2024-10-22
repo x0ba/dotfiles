@@ -1,3 +1,4 @@
+Brewfile
 Dockerfile
 README.md
 {{- if ne .chezmoi.os "linux" }}
