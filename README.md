@@ -1,7 +1,14 @@
 # x0ba's dotfiles
 
-cross-platform dotfiles for thinkpad t480 running bluefin and a macbook air running macos sequoia
+## thinkpad t480:
+- distro: [bluefin](https://projectbluefin.io/)
+- terminal: ptyxis
+- shell: bash
 
-don't use unless you want pain
+## macbook air m1:
+- macos sequoia
+- terminal: ghostty
 
-zellij, nvim, doom emacs, vscode, zsh
+## both
+- multiplexer: zellij
+- shell: nushell
