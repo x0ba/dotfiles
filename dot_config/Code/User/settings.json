@@ -1,6 +1,6 @@
 {
     "window.titleBarStyle": "custom",
-    "editor.fontFamily": "'Berkeley Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "'Berkeley Mono', 'monospace', monospace",
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
     "editor.lineNumbers": "relative"
