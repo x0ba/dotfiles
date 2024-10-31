@@ -11,8 +11,6 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
-[credential]
-	helper = store
 [user]
 	email = danielxu0307@proton.me
 	name = Daniel Xu
@@ -50,3 +48,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[credential]
+	helper = cache --timeout 21600
+	helper = oauth
