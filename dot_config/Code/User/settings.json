@@ -1,7 +1,12 @@
 {
     "window.titleBarStyle": "custom",
-    "editor.fontFamily": "'Berkeley Mono', 'monospace', monospace",
+    "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
-    "editor.lineNumbers": "relative"
+    "editor.lineNumbers": "relative",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.list.smoothScrolling": true,
+    "editor.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "editor.cursorBlinking": "smooth"
 }
