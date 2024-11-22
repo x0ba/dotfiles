@@ -1,4 +1,3 @@
-font-family = JetBrains Mono
 font-size = 14
 
 theme = catppuccin-mocha
@@ -8,11 +7,9 @@ command = zsh
 window-theme = dark
 confirm-close-surface = false
 macos-titlebar-style = tabs
-gtk-titlebar = false
+gtk-titlebar = true
 gtk-single-instance = true
 window-save-state = never
 window-padding-x = 10
 window-padding-y = 10
-window-height = 30
-window-width = 120
 

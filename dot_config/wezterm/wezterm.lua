@@ -1,11 +1,13 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.color_scheme = "GruvboxDark"
+config.color_scheme = "Catppuccin Mocha"
+config.window_decorations = "TITLE | RESIZE"
+config.enable_wayland = false
 
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font("Cascadia Code")
 
-config.font_size = 10
+config.font_size = 12
 config.default_prog = { "/usr/bin/zsh" }
 config.front_end = "WebGpu"
 

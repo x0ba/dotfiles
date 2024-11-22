@@ -9,7 +9,3 @@ README.md
 .config/waybar/
 .config/mpv/
 {{- end }}
-{{- if ne .chezmoi.os "darwin" }}
-# ignore macOS configuration
-.config/ghostty/
-{{- end }}
