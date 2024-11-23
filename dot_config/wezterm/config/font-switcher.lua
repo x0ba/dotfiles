@@ -22,7 +22,7 @@ local M = {}
 ---@type Defaults
 local defaults = {
   size = 13,
-  command_palette_font = "IBM Plex Sans",
+  command_palette_font = "Inter",
 }
 
 ---@param config table<string, any>

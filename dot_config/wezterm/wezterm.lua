@@ -33,7 +33,6 @@ else
 end
 
 c.adjust_window_size_when_changing_font_size = false
-c.font_size = 14.0
 c.audible_bell = "Disabled"
 c.default_cursor_style = "BlinkingBar"
 c.inactive_pane_hsb = { brightness = 0.90 }
