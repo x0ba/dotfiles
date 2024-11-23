@@ -1,15 +1,11 @@
 font-size = 14
+font-family = Cascadia Code
 
 theme = catppuccin-mocha
 
 cursor-style = bar
 command = zsh
-window-theme = dark
 confirm-close-surface = false
-macos-titlebar-style = tabs
-gtk-titlebar = true
-gtk-single-instance = true
-window-save-state = never
 window-padding-x = 10
 window-padding-y = 10
 
