@@ -25,10 +25,11 @@ if utils.is_darwin() then
   c.macos_window_background_blur = 20
   c.window_background_opacity = 0.95
   c.window_decorations = "RESIZE|INTEGRATED_BUTTONS"
-  c.window_padding = { left = 5, right = 5, top = 50, bottom = 5 }
+  c.window_padding = { left = 10, right = 10, top = 50, bottom = 5 }
   c.default_prog = { "/bin/zsh", "-l" }
 else
-  c.window_padding = { left = 5, right = 5, top = 5, bottom = 5 }
+  c.window_padding = { left = 10, right = 10, top = 5, bottom = 5 }
+  c.default_prog = { "/usr/bin/zsh", "-l" }
 end
 
 c.adjust_window_size_when_changing_font_size = false
