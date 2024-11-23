@@ -5,6 +5,7 @@ local utils = require("config.utils")
 require("config.font-switcher").apply(c, {
   fonts = {
     { font = "BlexMono Nerd Font" },
+    { font = "ComicCodeLigatures Nerd Font" },
     { font = "CaskaydiaMonoNF Nerd Font" },
     { font = "IntoneMono Nerd Font" },
     { font = "JetBrainsMono Nerd Font" },
@@ -19,16 +20,15 @@ require("config.keys").apply(c)
 require("config.zen-mode")
 
 c.front_end = "WebGpu"
-c.default_prog = { "/usr/bin/zsh", "-l" }
 
 if utils.is_darwin() then
   c.macos_window_background_blur = 20
   c.window_background_opacity = 0.95
   c.window_decorations = "RESIZE|INTEGRATED_BUTTONS"
-  c.window_padding = { left = 0, right = 0, top = 50, bottom = 0 }
+  c.window_padding = { left = 5, right = 5, top = 50, bottom = 5 }
+  c.default_prog = { "/bin/zsh", "-l" }
 else
-  c.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-  c.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
+  c.window_padding = { left = 5, right = 5, top = 5, bottom = 5 }
 end
 
 c.adjust_window_size_when_changing_font_size = false

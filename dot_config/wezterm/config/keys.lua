@@ -96,13 +96,13 @@ map(
 
 local key_tables = {
   resize_mode = {
-    { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
-    { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
-    { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
-    { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
-    { key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
-    { key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
-    { key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
+    { key = "h",          action = act.AdjustPaneSize({ "Left", 1 }) },
+    { key = "j",          action = act.AdjustPaneSize({ "Down", 1 }) },
+    { key = "k",          action = act.AdjustPaneSize({ "Up", 1 }) },
+    { key = "l",          action = act.AdjustPaneSize({ "Right", 1 }) },
+    { key = "LeftArrow",  action = act.AdjustPaneSize({ "Left", 1 }) },
+    { key = "DownArrow",  action = act.AdjustPaneSize({ "Down", 1 }) },
+    { key = "UpArrow",    action = act.AdjustPaneSize({ "Up", 1 }) },
     { key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
   },
 }
