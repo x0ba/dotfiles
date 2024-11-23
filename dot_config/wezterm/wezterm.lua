@@ -29,6 +29,7 @@ if utils.is_darwin() then
   c.default_prog = { "/bin/zsh", "-l" }
 else
   c.window_padding = { left = 10, right = 10, top = 5, bottom = 5 }
+  c.window_decorations = "INTEGRATED_BUTTONS"
   c.default_prog = { "/usr/bin/zsh", "-l" }
 end
 

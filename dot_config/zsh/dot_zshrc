@@ -88,6 +88,10 @@ else
   alias la='ls -lA'
 fi
 
+if [ -x "$(command -v bat)" ]; then
+  alias cat='bat'
+fi
+
 # chezmoi aliases
 alias cm='chezmoi'
 alias cma='chezmoi add'
