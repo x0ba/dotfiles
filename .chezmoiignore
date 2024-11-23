@@ -8,4 +8,5 @@ README.md
 .config/rofi/
 .config/waybar/
 .config/mpv/
+.config/chromium-flags.conf
 {{- end }}
