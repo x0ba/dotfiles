@@ -6,7 +6,7 @@ require("config.font-switcher").apply(c, {
   fonts = {
     { font = "BlexMono Nerd Font" },
     { font = "ComicCodeLigatures Nerd Font" },
-    { font = "CaskaydiaMonoNF Nerd Font" },
+    { font = "CaskaydiaCove Nerd Font" },
     { font = "IntoneMono Nerd Font" },
     { font = "JetBrainsMono Nerd Font" },
     { font = "MonaspiceAr Nerd Font" },

@@ -1,7 +1,6 @@
-FROM archlinux:latest
+FROM opensuse/tumbleweed:latest
 
-RUN pacman -Sy
-RUN pacman -S --noconfirm \
+RUN zypper --non-interactive in \
   ccache \
   starship \
   zellij \
@@ -11,7 +10,6 @@ RUN pacman -S --noconfirm \
   git \
   sudo \
   atuin \
-  nushell \
   bat \
   fzf \
   direnv \
@@ -22,7 +20,6 @@ RUN pacman -S --noconfirm \
   python \
   yazi \
   ripgrep \
-  tree-sitter-cli \
   unzip \
   zip \
   zoxide \
@@ -46,7 +43,7 @@ RUN sudo chown -R demo:demo /home/demo/.local
 # install them
 RUN chezmoi init && chezmoi apply
 
-# set up antigen
+# set up zinit
 RUN zsh -c "zsh ~/.config/zsh/.zshrc; exit 0"
 
 # set up neovim, cloning lazy.nvim and installing plugins
