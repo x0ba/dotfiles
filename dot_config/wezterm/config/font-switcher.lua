@@ -21,7 +21,7 @@ local M = {}
 
 ---@type Defaults
 local defaults = {
-  size = 13,
+  size = 11,
   command_palette_font = "Inter",
 }
 

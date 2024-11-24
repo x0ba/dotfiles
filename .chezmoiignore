@@ -8,5 +8,5 @@ README.md
 .config/rofi/
 .config/waybar/
 .config/mpv/
-.config/chromium-flags.conf
+.config/brave-flags.conf
 {{- end }}
