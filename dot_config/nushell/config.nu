@@ -68,10 +68,6 @@ alias cmup = chezmoi update
 alias vim = nvim
 alias c = clear
 
-{{ if eq .chezmoi.os "darwin" }}
-$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
-{{ end }}
-
 source ~/.cache/carapace/init.nu
 source ~/.local/share/atuin/init.nu
 source ~/.local/share/zoxide/init.nu
