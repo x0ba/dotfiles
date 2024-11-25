@@ -1,7 +1,7 @@
 font-size = 14
 font-family = BlexMono Nerd Font
 
-theme = dark:GruvboxDarkHard,light:GruvboxLight
+theme = dark:GruvboxDark,light:GruvboxLight
 
 macos-titlebar-style = tabs
 command = zsh

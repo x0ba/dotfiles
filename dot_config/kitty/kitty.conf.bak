@@ -79,7 +79,7 @@ map super+0 goto_tab -1
 map alt+enter toggle_fullscreen
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Gruvbox Material Dark Hard
 include current-theme.conf
 # END_KITTY_THEME
 

@@ -1,8 +1,7 @@
 return {
-  'sainnhe/gruvbox-material',
+  'ellisonleao/gruvbox.nvim',
   priority = 1000, -- Make sure to load this before all the other start plugins.
   init = function()
-    vim.g.gruvbox_material_background = 'hard';
-    vim.cmd.colorscheme 'gruvbox-material'
+    vim.cmd.colorscheme 'gruvbox'
   end,
 }
