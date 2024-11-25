@@ -1,5 +1,9 @@
 # font settings
+{{ if eq .chezmoi.os "darwin" }}
+font_size 14
+{{ else if eq .chezmoi.os "linux" }}
 font_size 11
+{{ end }}
 active_tab_font_style bold
 inactive_tab_font_style normal
 
