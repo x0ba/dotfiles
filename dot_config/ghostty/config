@@ -4,7 +4,7 @@ font-family = BlexMono Nerd Font
 theme = dark:GruvboxDark,light:GruvboxLight
 
 macos-titlebar-style = tabs
-command = nu
+command = zsh
 confirm-close-surface = false
 window-padding-x = 10
 window-padding-y = 10
