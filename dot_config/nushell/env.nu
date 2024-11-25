@@ -23,6 +23,14 @@ $env.GPG_TTY = (tty)
 $env.SSH_AUTH_SOCK = (gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
+$env.MANPAGER = "bat -l man -p"
+$env.EDITOR = "nvim"
+
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 
+mkdir ~/.local/share/atuin/
+atuin init nu | save -f ~/.local/share/atuin/init.nu
+
+mkdir ~/.local/share/zoxide/
+zoxide init nushell | save -f ~/.local/share/zoxide/init.nu

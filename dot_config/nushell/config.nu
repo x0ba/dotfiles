@@ -1,10 +1,5 @@
 #!/usr/bin/env nu
 
-let theme = {
-    separator: "#222222"
-    header: green_bold
-}
-
 $env.config = {
   show_banner: false
   rm: {
@@ -20,10 +15,6 @@ $env.config = {
     file_format: "sqlite"
     isolation: false
   }
-  cursor_shape: {
-    emacs: underscore
-  }
-  color_config: $theme
   footer_mode: "auto"
   shell_integration: {
       osc2: true
@@ -62,6 +53,23 @@ $env.config = {
   ]
 }
 
-use ~/.cache/starship/init.nu
+alias cm = chezmoi
+alias cma = chezmoi add
+alias cmap = chezmoi apply
+def cmcd [] {
+    cd (chezmoi source-path)
+}
+alias cmd = chezmoi diff
+alias cme = chezmoi edit
+alias cmm = chezmoi merge
+alias cmrm = chezmoi remove
+alias cmst = chezmoi status
+alias cmup = chezmoi update
+alias vim = nvim
+alias c = clear
+
 source ~/.cache/carapace/init.nu
+source ~/.local/share/atuin/init.nu
+source ~/.local/share/zoxide/init.nu
+use ~/.cache/starship/init.nu
 
