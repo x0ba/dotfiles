@@ -56,9 +56,6 @@ $env.config = {
 alias cm = chezmoi
 alias cma = chezmoi add
 alias cmap = chezmoi apply
-def cmcd [] {
-    cd (chezmoi source-path)
-}
 alias cmd = chezmoi diff
 alias cme = chezmoi edit
 alias cmm = chezmoi merge
