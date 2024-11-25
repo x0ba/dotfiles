@@ -1,3 +1,5 @@
+-- this needs to be set before everything else
+vim.opt.termguicolors = true
 -- Set <space> as the leader key
 -- See `:help mapleader`
 vim.g.mapleader = ' '
