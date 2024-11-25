@@ -24,6 +24,11 @@ macos_option_as_alt yes
 
 # set shell to nu
 shell nu
+{{ if eq .chezmoi.os "darwin" }}
+shell /opt/homebrew/bin/nu
+{{ else if eq .chezmoi.os "linux" }}
+shell nu
+{{ end }}
 
 # keymaps
 # this emulates zooming panes
