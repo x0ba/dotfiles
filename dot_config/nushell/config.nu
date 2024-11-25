@@ -5,6 +5,11 @@ $env.config = {
   rm: {
     always_trash: true
   }
+  cursor_shape: {
+    vi_insert: underscore
+    vi_normal: block
+    emacs: line
+  }
   table: {
     mode: compact
     index_mode: auto
