@@ -69,7 +69,7 @@ alias vim = nvim
 alias c = clear
 
 {{ if eq .chezmoi.os "darwin" }}
-let-env PATH = ($env.PATH | append "/opt/homebrew/bin")
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
 {{ end }}
 
 source ~/.cache/carapace/init.nu
