@@ -2,3 +2,4 @@
 
 export RUSTC_WRAPPER='sccache'
 export EDITOR='nvim'
+export MANPAGER='nvim +Man!'
