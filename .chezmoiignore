@@ -5,11 +5,13 @@ README.md
 # ignore linux configuration
 .config/i3/
 .config/niri/
+.local/bin/powermenu
+.local/bin/startdwm
 .config/rofi/
+.config/picom.conf
 .config/waybar/
 .config/mpv/
 .config/brave-flags.conf
 .config/fontconfig
-.xinitrc
-.Xresources
+.config/X11
 {{- end }}
