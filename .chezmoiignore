@@ -9,4 +9,7 @@ README.md
 .config/waybar/
 .config/mpv/
 .config/brave-flags.conf
+.config/fontconfig
+.xinitrc
+.Xresources
 {{- end }}

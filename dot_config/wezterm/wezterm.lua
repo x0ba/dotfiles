@@ -36,8 +36,6 @@ c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.default_cursor_style = "BlinkingBar"
 c.inactive_pane_hsb = { brightness = 0.90 }
-c.color_scheme = "Catppuccin Mocha"
-
-require("bar.plugin").apply_to_config(c)
+c.color_scheme = "GruvboxDark"
 
 return c

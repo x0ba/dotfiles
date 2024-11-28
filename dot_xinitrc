@@ -1,0 +1,1 @@
+exec ~/.local/bin/startdwm

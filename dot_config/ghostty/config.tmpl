@@ -1,14 +1,17 @@
+{{ if eq .chezmoi.os "darwin" }}
 font-size = 14
-font-family = BlexMono Nerd Font
+{{ else if eq .chezmoi.os "linux" }}
+font-size = 12
+{{ end }}
 
-theme = dark:GruvboxDark,light:GruvboxLight
+font-family = JetBrainsMono Nerd Font
+
+theme = GruvboxDark
 
 macos-titlebar-style = tabs
-{{ if eq .chezmoi.os "darwin" }}
-command = /opt/homebrew/bin/nu
-{{ else if eq .chezmoi.os "linux" }}
-command = nu
-{{ end }}
+gtk-titlebar = false
+gtk-single-instance = true
+command = zsh
 confirm-close-surface = false
 window-padding-x = 10
 window-padding-y = 10
