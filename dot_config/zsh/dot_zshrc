@@ -31,7 +31,7 @@ zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
 # Load completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -C
 
 zinit cdreplay -q
 
