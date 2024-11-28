@@ -38,4 +38,8 @@ c.default_cursor_style = "BlinkingBar"
 c.inactive_pane_hsb = { brightness = 0.90 }
 c.color_scheme = "GruvboxDark"
 
+c.tab_bar_at_bottom = true
+c.tab_bar_at_bottom = true
+c.use_fancy_tab_bar = false
+
 return c
