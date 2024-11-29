@@ -4,6 +4,7 @@ local utils = require("config.utils")
 
 require("config.font-switcher").apply(c, {
   fonts = {
+    { font = "BerkeleyMono Nerd Font" },
     { font = "BlexMono Nerd Font" },
     { font = "ComicCodeLigatures Nerd Font" },
     { font = "CaskaydiaCove Nerd Font" },
@@ -34,12 +35,12 @@ end
 
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
-c.default_cursor_style = "BlinkingBar"
 c.inactive_pane_hsb = { brightness = 0.90 }
 c.color_scheme = "GruvboxDark"
 
 c.tab_bar_at_bottom = true
 c.tab_bar_at_bottom = true
 c.use_fancy_tab_bar = false
+c.hide_tab_bar_if_only_one_tab = true
 
 return c
