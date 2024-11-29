@@ -21,7 +21,7 @@
 [advice]
 	detachedHead = false
 [commit]
-	gpgsign = false
+	gpgsign = true
 [tag]
 	gpgsign = true
 [push]
