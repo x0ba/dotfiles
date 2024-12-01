@@ -1,2 +1,2 @@
 xrdb -merge ~/.Xresources
-exec dwm
+exec ~/.local/bin/startdwm

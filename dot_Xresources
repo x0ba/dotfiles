@@ -1,23 +1,24 @@
 Xcursor.theme: Bibata-Modern-Ice
-Xft.dpi: 106
+Xft.dpi: 105
 
-dwm.normfgcolor: #D8DEE9
-dwm.normbgcolor: #2E3440
-dwm.normbordercolor: #3B4252
-
-dwm.selfgcolor: #ECEFF4
-dwm.selbgcolor: #434C5E
-dwm.selbordercolor: #434C5E
-
-dwm.titlenormfgcolor: #D8DEE9
-dwm.titlenormbgcolor: #2E3440
-
-dwm.titleselfgcolor: #ECEFF4
-dwm.titleselbgcolor: #434C5E
-
-dwm.tagsnormfgcolor: #D8DEE9
-dwm.tagsnormbgcolor: #2E3440
-dwm.tagsnormbordercolor: #3B4252
-
-dwm.tagsselfgcolor: #ECEFF4
-dwm.tagsselbgcolor: #434C5E
+! Uncomment for nord colors
+! dwm.normfgcolor: #D8DEE9
+! dwm.normbgcolor: #2E3440
+! dwm.normbordercolor: #3B4252
+!
+! dwm.selfgcolor: #ECEFF4
+! dwm.selbgcolor: #434C5E
+! dwm.selbordercolor: #434C5E
+!
+! dwm.titlenormfgcolor: #D8DEE9
+! dwm.titlenormbgcolor: #2E3440
+!
+! dwm.titleselfgcolor: #ECEFF4
+! dwm.titleselbgcolor: #434C5E
+!
+! dwm.tagsnormfgcolor: #D8DEE9
+! dwm.tagsnormbgcolor: #2E3440
+! dwm.tagsnormbordercolor: #3B4252
+!
+! dwm.tagsselfgcolor: #ECEFF4
+! dwm.tagsselbgcolor: #434C5E

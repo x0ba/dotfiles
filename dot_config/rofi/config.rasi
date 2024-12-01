@@ -2,9 +2,9 @@
 
 configuration {
   show-icons: true;
-  icon-theme: "ePapirus-Dark";
+  icon-theme: "Papirus";
   display-drun: "  ";
-  display-window: " ";
-  display-combi: "󰕘  ";
+  display-window: "﩯 ";
+  display-combi: "  ";
 }
 @theme "themes/sidetab-nord.rasi"
