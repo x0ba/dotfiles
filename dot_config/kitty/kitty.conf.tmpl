@@ -2,7 +2,7 @@
 {{ if eq .chezmoi.os "darwin" }}
 font_size 14
 {{ else if eq .chezmoi.os "linux" }}
-font_size 13
+font_size 12
 {{ end }}
 active_tab_font_style bold
 inactive_tab_font_style normal
@@ -19,7 +19,7 @@ enabled_layouts splits, stack
 tab_title_template "{index}: {title}{sup.num_windows if num_windows > 1 else ''}{activity_symbol}{bell_symbol}"
 
 # always show tab bar
-tab_bar_min_tabs 1
+tab_bar_min_tabs 2
 
 # macos stuff
 macos_option_as_alt yes
@@ -85,7 +85,7 @@ map super+0 goto_tab -1
 map alt+enter toggle_fullscreen
 
 # BEGIN_KITTY_THEME
-# Gruvbox Dark
+# Nord
 include current-theme.conf
 # END_KITTY_THEME
 
