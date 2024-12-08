@@ -1,8 +1,8 @@
 return {
   {
     "hrsh7th/nvim-cmp",
-    lazy = false,
-    priority = 100,
+    lazy = true,
+    event = "InsertEnter",
     dependencies = {
       "onsails/lspkind.nvim",
       "hrsh7th/cmp-nvim-lsp",
