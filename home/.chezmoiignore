@@ -1,17 +1,27 @@
-Brewfile
-Dockerfile
-README.md
-{{- if ne .chezmoi.os "linux" }}
-# ignore linux configuration
-.config/i3/
-.config/niri/
-.local/bin/powermenu
-.local/bin/startdwm
-.config/rofi/
-.config/picom.conf
-.config/waybar/
-.config/mpv/
+# bluefin laptop
+{{- if eq .chezmoi.hostname "phantom" }}
+.xinitrc
+.Xresources
+.config/ghostty
+.config/kitty
+.config/mpv
+.config/niri
+.config/rofi
+.config/wezterm
 .config/brave-flags.conf
-.config/fontconfig
-.config/X11
+.config/picom.conf
+.local/bin
+{{- end }}
+
+# macos
+{{- if eq .chezmoi.hostname "exo" }}
+.xinitrc
+.Xresources
+.config/mpv
+.config/niri
+.config/rofi
+.config/wezterm
+.config/brave-flags.conf
+.config/picom.conf
+.local/bin
 {{- end }}
