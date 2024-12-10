@@ -14,7 +14,7 @@
 {{- end }}
 
 # macos
-{{- if eq .chezmoi.hostname "exo" }}
+{{- if eq .chezmoi.os "darwin" }}
 .xinitrc
 .Xresources
 .config/mpv
