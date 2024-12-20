@@ -55,7 +55,7 @@ set('n', '<leader>ws', '<cmd>split<CR>', { desc = 'Split horizontally' })
 set('n', '<leader>x', '<cmd>.lua<CR>', { desc = 'Execute the current line' })
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
+set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
 set({ "n", "v" }, "<leader>y", [["+y]])
