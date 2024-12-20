@@ -214,7 +214,7 @@ plugins {
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-// default_shell "zsh"
+default_shell "zsh"
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //
@@ -256,7 +256,7 @@ serialize_pane_viewport false
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "catppuccin-mocha"
+theme "catppuccin-macchiato"
 
 // The name of the default layout to load on startup
 // Default: "default" or "compact"
