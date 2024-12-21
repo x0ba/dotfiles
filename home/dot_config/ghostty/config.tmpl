@@ -1,10 +1,12 @@
 {{ if eq .chezmoi.os "darwin" }}
 font-size = 14
 {{ else if eq .chezmoi.os "linux" }}
-font-size = 12
+font-size = 13
 {{ end }}
 
-theme = catppuccin-macchiato
+font-family = Rec Mono Duotone
+
+theme = catppuccin-mocha
 
 macos-titlebar-style = tabs
 command = zsh
