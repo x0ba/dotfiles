@@ -1,15 +1,15 @@
 {{ if eq .chezmoi.os "darwin" }}
 font-size = 14
+macos-titlebar-style = tabs
 {{ else if eq .chezmoi.os "linux" }}
 font-size = 13
+command = zsh
 {{ end }}
 
 font-family = Rec Mono Duotone
 
 theme = catppuccin-mocha
 
-macos-titlebar-style = tabs
-command = zsh
 confirm-close-surface = false
 window-padding-x = 10
 window-padding-y = 10
