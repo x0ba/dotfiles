@@ -21,6 +21,7 @@ in {
       common.enable = true;
       desktop.enable = true;
     };
+    apps.onepassword.enable = true;
     services = {
       tailscale.enable = true;
     };
