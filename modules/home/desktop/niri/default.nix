@@ -63,7 +63,6 @@ in {
 
         layout {
             gaps 8
-            // always-center-single-column
             center-focused-column "always"
 
             preset-column-widths {
