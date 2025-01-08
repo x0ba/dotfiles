@@ -28,6 +28,7 @@ in {
             "niri/workspaces"
           ];
           modules-center = [
+            "niri/window"
           ];
           modules-right = [
             "tray"
@@ -104,6 +105,7 @@ in {
           #memory,
           #disk,
           #network,
+          #niri-window,
           #battery,
           #custom-spotify,
           #pulseaudio,
@@ -118,11 +120,6 @@ in {
             margin-right: 2px;
             margin-left: 2px;
             transition: all 0.3s ease;
-          }
-
-          #window {
-            background-color: transparent;
-            box-shadow: none;
           }
 
           window#waybar {

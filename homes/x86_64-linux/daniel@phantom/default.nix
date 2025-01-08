@@ -28,6 +28,7 @@
       browsers.enable = true;
       discord.enable = true;
       emacs.enable = true;
+      zathura.enable = true;
       ghostty.enable = true;
       spotify.enable = true;
       mpv.enable = true;
