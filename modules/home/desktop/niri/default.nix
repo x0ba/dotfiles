@@ -29,6 +29,17 @@ in {
     xdg.configFile."niri/config.kdl".text =
       # kdl
       ''
+        environment {
+            DISPLAY ":0"
+            QT_QPA_PLATFORM "wayland"
+            XDG_CURRENT_DESKTOP "niri"
+            XDG_SESSION_TYPE "wayland"
+            MANGOHUD "0"
+            MANGOHUD_DLSYM "1"
+            EDITOR "nvim"
+            _JAVA_AWT_WM_NONREPARENTING "1"
+            _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=gasp"
+        }
         input {
             keyboard {
                 xkb {
@@ -156,6 +167,7 @@ in {
 
         window-rule {
             match is-focused=false title=r#"(?i)gmail"#
+            match is-focused=false title=r#"(?i)1Password"#
             match is-focused=false title=r#"(?i)inertia"#
             match is-focused=false title="Signal"
 
@@ -178,6 +190,7 @@ in {
         spawn-at-startup "${pkgs.swaynotificationcenter}/bin/swaync"
         spawn-at-startup "${lib.getExe pkgs.wlsunset}" "-l" "37.4" "-L" "-121.9"
         spawn-at-startup "${lib.getExe pkgs.nextcloud-client}" "--background"
+        spawn-at-startup "${lib.getExe pkgs._1password-gui}" "--silent"
 
         binds {
             Mod+Shift+Slash { show-hotkey-overlay; }
@@ -185,6 +198,7 @@ in {
             Mod+Return { spawn "ghostty"; }
             Mod+E { spawn "${pkgs.emacs29-pgtk}/bin/emacsclient" "-c"; }
             Mod+V { spawn "sh" "-c" "${lib.getExe pkgs.clipman} pick -t rofi --err-on-no-selection && ${lib.getExe pkgs.wtype} -M ctrl -M shift v"; }
+            Mod+Shift+Space { spawn "${lib.getExe pkgs._1password-gui}" "--quick-access"; }
             Mod+D { spawn "${lib.getExe pkgs.rofi-wayland}" "-show" "drun"; }
             Mod+P { spawn "${lib.getExe pkgs.wlogout}"; }
             Super+Alt+L { spawn "${lib.getExe config.programs.swaylock.package}"; }

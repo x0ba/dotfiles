@@ -87,6 +87,7 @@ in {
           "Nextcloud"
           ".config/Nextcloud"
           ".local/state/syncthing"
+          ".config/1Password"
           ".config/spotify"
           ".config/doom"
           ".config/pika-backup"
