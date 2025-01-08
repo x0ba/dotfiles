@@ -17,9 +17,9 @@ in {
   config = mkIf cfg.enable {
     programs.neovim = enabled;
     xdg.configFile = {
-      "nvim/init.lua".source = ./config/init.lua;
-      "nvim/lua".source = ./config/lua;
-      "nvim/plugin".source = ./config/plugin;
+      "nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink ./config/init.lua;
+      "nvim/lua".source = config.lib.file.mkOutOfStoreSymlink ./config/lua;
+      "nvim/plugin".source = config.lib.file.mkOutOfStoreSymlink ./config/plugin;
     };
     home = {
       packages = with pkgs; [

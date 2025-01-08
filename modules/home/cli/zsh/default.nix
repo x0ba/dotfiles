@@ -8,7 +8,7 @@
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.stdenv) isLinux;
   zshPlugins = plugins: (map (plugin: rec {
-      name = src.name;
+      inherit (src) name;
       inherit (plugin) file src;
     })
     plugins);

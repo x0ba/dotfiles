@@ -13,6 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nur.url = "github:nix-community/nur";
     ghostty = {
       url = "github:ghostty-org/ghostty";
@@ -103,6 +104,7 @@
       ];
 
       systems.hosts.phantom.modules = with inputs; [
+        nixos-hardware.nixosModules.lenovo-thinkpad-t480
         (import ./disks/default.nix {
           inherit lib;
           device = "/dev/nvme0n1";
@@ -120,6 +122,7 @@
             alejandra.enable = true;
             actionlint.enable = true;
             mdformat.enable = true;
+            statix.enable = true;
             deadnix.enable = true;
             just.enable = true;
             stylua.enable = true;
@@ -127,7 +130,7 @@
             jsonfmt.enable = true;
           };
         };
-        treefmtEval = inputs.treefmt-nix.lib.evalModule (channels.nixpkgs) treefmtConfig;
+        treefmtEval = inputs.treefmt-nix.lib.evalModule channels.nixpkgs treefmtConfig;
       in {
         formatter = treefmtEval.config.build.wrapper;
       };

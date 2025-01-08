@@ -18,6 +18,8 @@ in {
   config = mkIf cfg.enable {
     home.packages = [
       pkgs.git-credential-oauth
+      pkgs.rs-git-fsmonitor
+      pkgs.watchman
       pkgs.hub
       pkgs.git-crypt
     ];
@@ -73,6 +75,7 @@ in {
       ];
 
       extraConfig = {
+        core.fsmonitor = "rs-git-fsmonitor";
         credential.helper = [
           "cache --timeout 21600"
           "oauth"

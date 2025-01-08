@@ -29,7 +29,6 @@ in {
       name = "daniel";
     };
     system = {
-      hardware_acceleration.enable = true;
       laptop.enable = true;
     };
     desktop.niri.enable = true;

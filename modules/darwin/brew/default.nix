@@ -30,7 +30,7 @@ in {
     homebrew = {
       enable = true;
       caskArgs.require_sha = true;
-      brews = [] ++ cfg.brews;
+      inherit (cfg) brews;
       casks =
         [
           "1password"
