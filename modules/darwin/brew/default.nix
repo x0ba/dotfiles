@@ -47,6 +47,7 @@ in {
           "mullvad-browser"
           "brave-browser"
           "maccy"
+          "linearmouse"
           "keka"
           "veracrypt"
           "macfuse"
@@ -56,7 +57,6 @@ in {
           "yubico-authenticator"
           (skipSha "spotify")
           "rectangle"
-          "calibre"
           "orion"
           "syntax-highlight"
           "tor-browser"

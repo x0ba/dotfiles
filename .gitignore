@@ -1,2 +1,3 @@
 /result
 *.qcow2
+**/lazy-lock.json
