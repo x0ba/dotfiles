@@ -35,6 +35,7 @@ in {
         confirm-close-surface = false;
 
         gtk-single-instance = true;
+        keybind = "global:ctrl+grave_accent=toggle_quick_terminal";
 
         window-padding-x = "7";
         window-padding-y = "7";
