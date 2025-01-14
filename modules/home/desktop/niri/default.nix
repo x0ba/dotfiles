@@ -195,7 +195,7 @@ in {
         binds {
             Mod+Shift+Slash { show-hotkey-overlay; }
 
-            Mod+Return { spawn "ghostty"; }
+            Mod+Return { spawn "${lib.getExe pkgs.ghostty}"; }
             Mod+E { spawn "${pkgs.emacs29-pgtk}/bin/emacsclient" "-c"; }
             Mod+V { spawn "sh" "-c" "${lib.getExe pkgs.clipman} pick -t rofi --err-on-no-selection && ${lib.getExe pkgs.wtype} -M ctrl -M shift v"; }
             Mod+Shift+Space { spawn "${lib.getExe pkgs._1password-gui}" "--quick-access"; }

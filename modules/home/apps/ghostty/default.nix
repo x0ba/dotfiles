@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  inputs,
   namespace,
   ...
 }: let
@@ -20,7 +19,7 @@ in {
       enable = true;
       package =
         if isLinux
-        then inputs.ghostty.packages.x86_64-linux.default
+        then pkgs.ghostty
         else (pkgs.writeScriptBin "__dummy-ghostty" "");
       enableZshIntegration = true;
       installBatSyntax = false;
