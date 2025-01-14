@@ -74,7 +74,6 @@ in {
 
         layout {
             gaps 8
-            center-focused-column "always"
 
             preset-column-widths {
                 proportion 0.25
@@ -86,7 +85,9 @@ in {
             default-column-width {}
 
             focus-ring {
-                off
+                width 3
+                active-color "hsla(232, 97%, 85%, 0.60)"
+                inactive-color "hsla(251, 86%, 64%, 0.10)"
             }
 
             insert-hint {
@@ -183,7 +184,7 @@ in {
         }
 
         spawn-at-startup "${lib.getExe pkgs.xwayland-satellite}"
-        spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../wallpapers/Bridge.jpg}"
+        spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../wallpapers/space.png}"
         spawn-at-startup "${lib.getExe pkgs.waybar}"
         spawn-at-startup "${swayosd-server}"
         spawn-at-startup "sh" "-c" "${lib.getExe pkgs.swayidle} -w timeout 300 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep '${lib.getExe config.programs.swaylock.package} -f'"

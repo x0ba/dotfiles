@@ -26,7 +26,7 @@ in {
       settings = {
         font-size =
           if isLinux
-          then 11
+          then 13
           else 13;
         font-family = "BerkeleyMono Nerd Font";
 
