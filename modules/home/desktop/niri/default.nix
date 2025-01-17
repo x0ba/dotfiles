@@ -86,7 +86,7 @@ in {
 
             focus-ring {
                 width 3
-                active-color "hsla(232, 97%, 85%, 0.60)"
+                active-color "hsla(232, 97%, 85%, 0.80)"
                 inactive-color "hsla(251, 86%, 64%, 0.10)"
             }
 
