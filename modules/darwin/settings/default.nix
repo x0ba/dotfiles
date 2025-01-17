@@ -21,6 +21,14 @@ in {
     system = {
       defaults = {
         loginwindow.LoginwindowText = "Live, laugh, love.";
+        dock = {
+          show-recents = false;
+          autohide = true;
+          autohide-delay = 0.0;
+          autohide-time-modifier = 0.45;
+          showhidden = true;
+          tilesize = 48;
+        };
         CustomSystemPreferences = {
           NSGlobalDomain = {
             AppleLanguages = [
@@ -30,7 +38,7 @@ in {
         };
         ".GlobalPreferences"."com.apple.mouse.scaling" = 0.5;
         alf.stealthenabled = 1;
-        dock.autohide = true;
+        alf.globalstate = 1;
         NSGlobalDomain = {
           # input
           "com.apple.keyboard.fnState" = false;

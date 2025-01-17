@@ -42,7 +42,6 @@ in {
           "tailscale"
           (skipSha "autodesk-fusion")
           "jordanbaird-ice"
-          "rio"
           "ghostty"
           "firefox"
           "mullvad-browser"
