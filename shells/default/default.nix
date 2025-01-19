@@ -1,6 +1,6 @@
 {pkgs, ...}:
 pkgs.mkShellNoCC {
-  buildInputs = with pkgs; [
+  packages = with pkgs; [
     alejandra
     git
     git-crypt

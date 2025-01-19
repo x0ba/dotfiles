@@ -22,6 +22,7 @@ in {
       desktop.enable = true;
     };
     apps.onepassword.enable = true;
+    apps.openssh.enable = true;
     services = {
       tailscale.enable = true;
     };

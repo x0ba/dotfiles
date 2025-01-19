@@ -72,7 +72,7 @@ in {
       # previews
       gnome.sushi.enable = true;
       # search metadata
-      gnome.tracker-miners.enable = true;
+      gnome.localsearch.enable = true;
       # thumbnails
       tumbler.enable = true;
     };

@@ -17,6 +17,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = lib.mkIf isLinux [
       pkgs.mullvad-browser
+      pkgs.tor-browser
     ];
     programs.chromium = {
       enable = isLinux;
@@ -44,174 +45,129 @@ in {
           multi-account-containers
           temporary-containers
           ublock-origin
-          vimium
         ];
-        # Note: last updated 2024-09-10
+        # Note: last updated 2025-01-18
         settings = {
-          "content.notify.interval" = 100000;
-
-          "gfx.canvas.accelerated.cache-items" = 4096;
-          "gfx.canvas.accelerated.cache-size" = 512;
-          "gfx.content.skia-font-cache-size" = 20;
-
-          "browser.cache.disk.enable" = true;
-
-          "media.memory_cache_max_size" = 65536;
-          "media.cache_readahead_limit" = 7200;
-          "media.cache_resume_threshold" = 3600;
-
-          "image.mem.decode_bytes_at_a_time" = 32768;
-
-          "network.http.max-connections" = 1800;
-          "network.http.max-persistent-connections-per-server" = 10;
-          "network.http.max-urgent-start-excessive-connections-per-host" = 5;
-          "network.http.pacing.requests.enabled" = false;
-          "network.dnsCacheExpiration" = 3600;
-          "network.ssl_tokens_cache_capacity" = 10240;
-
+          "app.normandy.api_url" = "";
+          "app.normandy.enabled" = false;
+          "app.shield.optoutstudies.enabled" = false;
+          "app.update.auto" = false;
+          "beacon.enabled" = false;
+          "breakpad.reportURL" = "";
+          "browser.aboutConfig.showWarning" = false;
+          "browser.cache.offline.enable" = false;
+          "browser.crashReports.unsubmittedCheck.autoSubmit" = false;
+          "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
+          "browser.crashReports.unsubmittedCheck.enabled" = false;
+          "browser.disableResetPrompt" = true;
+          "browser.fixup.alternate.enabled" = false;
+          "browser.formfill.enable" = false;
+          "browser.newtab.preload" = false;
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+          "browser.newtabpage.enabled" = false;
+          "browser.newtabpage.enhanced" = false;
+          "browser.newtabpage.introShown" = true;
+          "browser.quitShortcut.disabled" = true;
+          "browser.safebrowsing.appRepURL" = "";
+          "browser.safebrowsing.blockedURIs.enabled" = false;
+          "browser.safebrowsing.downloads.enabled" = false;
+          "browser.safebrowsing.downloads.remote.enabled" = false;
+          "browser.safebrowsing.downloads.remote.url" = "";
+          "browser.safebrowsing.enabled" = false;
+          "browser.safebrowsing.malware.enabled" = false;
+          "browser.safebrowsing.phishing.enabled" = false;
+          "browser.selfsupport.url" = "";
+          "browser.send_pings" = false;
+          "browser.sessionstore.privacy_level" = 0;
+          "browser.shell.checkDefaultBrowser" = false;
+          "browser.startup.homepage_override.mstone" = "ignore";
+          "browser.tabs.crashReporting.sendReport" = false;
+          "browser.urlbar.groupLabels.enabled" = false;
+          "browser.urlbar.quicksuggest.enabled" = false;
+          "browser.urlbar.speculativeConnect.enabled" = false;
+          "browser.urlbar.trimURLs" = false;
+          "browser.warnOnQuitShortcut" = false;
+          "datareporting.healthreport.service.enabled" = false;
+          "datareporting.healthreport.uploadEnabled" = false;
+          "datareporting.policy.dataSubmissionEnabled" = false;
+          "device.sensors.ambientLight.enabled" = false;
+          "device.sensors.enabled" = false;
+          "device.sensors.motion.enabled" = false;
+          "device.sensors.orientation.enabled" = false;
+          "device.sensors.proximity.enabled" = false;
+          "dom.battery.enabled" = false;
+          "dom.event.clipboardevents.enabled" = false;
+          "dom.private-attribution.submission.enabled" = false;
+          "dom.security.https_only_mode" = true;
+          "dom.security.https_only_mode_ever_enabled" = true;
+          "dom.webaudio.enabled" = false;
+          "experiments.activeExperiment" = false;
+          "experiments.enabled" = false;
+          "experiments.manifest.uri" = "";
+          "experiments.supported" = false;
+          "extensions.getAddons.cache.enabled" = false;
+          "extensions.getAddons.showPane" = false;
+          "extensions.pocket.enabled" = false;
+          "extensions.shield-recipe-client.api_url" = "";
+          "extensions.shield-recipe-client.enabled" = false;
+          "extensions.webservice.discoverURL" = "";
+          "media.autoplay.default" = 1;
+          "media.autoplay.enabled" = false;
+          "media.navigator.enabled" = false;
+          "media.peerconnection.enabled" = false;
+          "media.video_stats.enabled" = false;
+          "network.IDN_show_punycode" = true;
+          "network.allow-experiments" = false;
+          "network.captive-portal-service.enabled" = false;
+          "network.cookie.cookieBehavior" = 1;
           "network.dns.disablePrefetch" = true;
           "network.dns.disablePrefetchFromHTTPS" = true;
-          "network.prefetch-next" = false;
-          "network.predictor.enabled" = false;
+          "network.http.referer.spoofSource" = true;
+          "network.http.speculative-parallel-limit" = 0;
           "network.predictor.enable-prefetch" = false;
-
-          "layout.css.grid-template-masonry-value.enabled" = true;
-          "dom.enable_web_task_scheduling" = true;
-
-          "browser.contentblocking.category" = "strict";
-          "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
-          "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
-          "browser.download.start_downloads_in_tmp_dir" = true;
-          "browser.helperApps.deleteTempFileOnExit" = true;
-          "browser.uitour.enabled" = false;
-          "privacy.globalprivacycontrol.enabled" = true;
-
-          "security.OCSP.enabled" = 0;
-          "security.remote_settings.crlite_filters.enabled" = true;
-          "security.pki.crlite_mode" = 2;
-
-          "security.ssl.treat_unsafe_negotiation_as_broken" = true;
-          "browser.xul.error_pages.expert_bad_cert" = true;
-          "security.tls.enable_0rtt_data" = false;
-
-          "browser.privatebrowsing.forceMediaMemoryCache" = true;
-          "browser.sessionstore.interval" = 60000;
-
-          "browser.privatebrowsing.resetPBM.enabled" = true;
-          "privacy.history.custom" = true;
-
-          "browser.urlbar.trimHttps" = true;
-          "browser.urlbar.untrimOnUserInteraction.featureGate" = true;
-          "browser.search.separatePrivateDefault.ui.enabled" = true;
-          "browser.urlbar.update2.engineAliasRefresh" = true;
-          "browser.search.suggest.enabled" = false;
-          "browser.urlbar.quicksuggest.enabled" = false;
-          "browser.urlbar.groupLabels.enabled" = false;
-          "browser.formfill.enable" = false;
-          "security.insecure_connection_text.enabled" = true;
-          "security.insecure_connection_text.pbmode.enabled" = true;
-          "network.IDN_show_punycode" = true;
-
-          "dom.security.https_first" = true;
-
-          "signon.formlessCapture.enabled" = false;
-          "signon.privateBrowsingCapture.enabled" = false;
-          "network.auth.subresource-http-auth-allow" = 1;
-          "editor.truncate_user_pastes" = false;
-
-          "security.mixed_content.block_display_content" = true;
+          "network.predictor.enabled" = false;
+          "network.prefetch-next" = false;
+          "network.trr.mode" = 5;
           "pdfjs.enableScripting" = false;
-
-          "extensions.enabledScopes" = 5;
-
-          "network.http.referer.XOriginTrimmingPolicy" = 2;
-
-          "privacy.userContext.ui.enabled" = true;
-
-          "browser.safebrowsing.downloads.remote.enabled" = false;
-
-          "permissions.default.desktop-notification" = 2;
-          "permissions.default.geo" = 2;
-          "browser.search.update" = false;
-          "permissions.manager.defaultsUrl" = "";
-
-          "datareporting.policy.dataSubmissionEnabled" = false;
-          "datareporting.healthreport.uploadEnabled" = false;
-          "toolkit.telemetry.unified" = false;
-          "toolkit.telemetry.enabled" = false;
-          "toolkit.telemetry.server" = "data:,";
+          "privacy.donottrackheader.enabled" = true;
+          "privacy.donottrackheader.value" = 1;
+          "privacy.query_stripping" = true;
+          "privacy.trackingprotection.cryptomining.enabled" = true;
+          "privacy.trackingprotection.enabled" = true;
+          "privacy.trackingprotection.fingerprinting.enabled" = true;
+          "privacy.trackingprotection.pbmode.enabled" = true;
+          "privacy.usercontext.about_newtab_segregation.enabled" = true;
+          "security.ssl.disable_session_identifiers" = true;
+          "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
+          "signon.autofillForms" = false;
           "toolkit.telemetry.archive.enabled" = false;
-          "toolkit.telemetry.newProfilePing.enabled" = false;
-          "toolkit.telemetry.shutdownPingSender.enabled" = false;
-          "toolkit.telemetry.updatePing.enabled" = false;
           "toolkit.telemetry.bhrPing.enabled" = false;
+          "toolkit.telemetry.cachedClientID" = "";
+          "toolkit.telemetry.enabled" = false;
           "toolkit.telemetry.firstShutdownPing.enabled" = false;
-          "toolkit.telemetry.coverage.opt-out" = true;
-          "toolkit.coverage.opt-out" = true;
-          "toolkit.coverage.endpoint.base" = "";
-          "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-          "browser.newtabpage.activity-stream.telemetry" = false;
-
-          "app.shield.optoutstudies.enabled" = false;
-          "app.normandy.enabled" = false;
-          "app.normandy.api_url" = "";
-
-          "breakpad.reportURL" = "";
-          "browser.tabs.crashReporting.sendReport" = false;
-
-          "captivedetect.canonicalURL" = "";
-          "network.captive-portal-service.enabled" = false;
-          "network.connectivity-service.enabled" = false;
-
-          "browser.privatebrowsing.vpnpromourl" = "";
-          "extensions.getAddons.showPane" = false;
-          "extensions.htmlaboutaddons.recommendations.enabled" = false;
-          "browser.discovery.enabled" = false;
-          "browser.shell.checkDefaultBrowser" = false;
-          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
-          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
-          "browser.preferences.moreFromMozilla" = false;
-          "browser.aboutConfig.showWarning" = false;
-          "browser.aboutwelcome.enabled" = false;
-          "browser.profiles.enabled" = true;
-
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-          "browser.compactmode.show" = true;
-          "browser.privateWindowSeparation.enabled" = false;
-
-          "cookiebanners.service.mode" = 1;
-          "cookiebanners.service.mode.privateBrowsing" = 1;
-
-          "full-screen-api.transition-duration.enter" = "0 0";
-          "full-screen-api.transition-duration.leave" = "0 0";
-          "full-screen-api.warning.timeout" = 0;
-
-          "browser.urlbar.suggest.calculator" = true;
-          "browser.urlbar.unitConversion.enabled" = true;
-          "browser.urlbar.trending.featureGate" = false;
-
-          "browser.newtabpage.activity-stream.feeds.topsites" = false;
-          "browser.newtabpage.activity-stream.showWeather" = false;
-          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-
-          "extensions.pocket.enabled" = false;
-
-          "browser.download.manager.addToRecentDocs" = false;
-
-          "browser.download.open_pdf_attachments_inline" = true;
-
-          "browser.bookmarks.openInTabClosesMenu" = false;
-          "browser.menu.showViewImageInfo" = true;
-          "findbar.highlightAll" = true;
-          "layout.word_select.eat_space_to_next_word" = false;
-
+          "toolkit.telemetry.hybridContent.enabled" = false;
+          "toolkit.telemetry.newProfilePing.enabled" = false;
+          "toolkit.telemetry.prompted" = 2;
+          "toolkit.telemetry.rejected" = true;
+          "toolkit.telemetry.reportingpolicy.firstRun" = false;
+          "toolkit.telemetry.server" = "";
+          "toolkit.telemetry.shutdownPingSender.enabled" = false;
+          "toolkit.telemetry.unified" = false;
+          "toolkit.telemetry.unifiedIsOptIn" = false;
+          "toolkit.telemetry.updatePing.enabled" = false;
+          "webgl.renderer-string-override" = " ";
+          "webgl.vendor-string-override" = " ";
           "identity.fxaccounts.enabled" = false;
           "signon.rememberSignons" = false;
           "extensions.formautofill.addresses.enabled" = false;
           "extensions.formautofill.creditCards.enabled" = false;
 
-          "gfx.webrender.all" = true;
-          "media.ffmpeg.vaapi.enabled" = true;
+          # switch these if you're copying this config:
+          # allow webgl
+          "webgl.disabled" = false;
+          # these are to *enable* DRM, not to disable it
+          "media.eme.enabled" = true;
+          "media.gmp-widevinecdm.enabled" = true;
         };
       };
     };

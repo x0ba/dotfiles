@@ -1,5 +1,6 @@
 {
   options,
+  pkgs,
   config,
   lib,
   namespace,
@@ -14,11 +15,19 @@ in {
   };
 
   config = mkIf cfg.enable {
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.systemd-boot.configurationLimit = 10;
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.plymouth.enable = true;
-    boot.initrd.systemd.enable = true;
-    boot.kernelParams = ["quiet"];
+    boot = {
+      loader = {
+        systemd-boot.enable = true;
+        systemd-boot.configurationLimit = 10;
+        efi.canTouchEfiVariables = true;
+      };
+      plymouth = {
+        enable = true;
+        themePackages = [pkgs.plymouth-blahaj-theme];
+        theme = "blahaj";
+      };
+      initrd.systemd.enable = true;
+      kernelParams = ["quiet"];
+    };
   };
 }
