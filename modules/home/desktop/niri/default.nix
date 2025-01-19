@@ -100,50 +100,6 @@ in {
 
         screenshot-path "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png"
 
-        animations {
-          workspace-switch {
-              spring damping-ratio=1.0 stiffness=2000 epsilon=0.0001
-          }
-          horizontal-view-movement {
-              spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-          }
-          window-movement {
-              spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-          }
-          window-open {
-              spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-              custom-shader r"
-                  float map(float value, float min1, float max1, float min2, float max2) {
-                      return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
-                  }
-                      vec4 open_color(vec3 coords_geo, vec3 size_geo) {
-                      float cur = niri_clamped_progress;
-                      if (coords_geo.x > cur) {
-                          return vec4(0.0);
-                      }
-                      vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0 ), coords_geo.y, coords_geo.z);
-                      return texture2D(niri_tex, (niri_geo_to_tex * coord).st);
-                  }
-              "
-          }
-          window-close {
-              spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-              custom-shader r"
-                  float map(float value, float min1, float max1, float min2, float max2) {
-                      return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
-                  }
-                  vec4 close_color(vec3 coords_geo, vec3 size_geo) {
-                      float cur = 1.0-niri_clamped_progress;
-                      if (coords_geo.x > cur) {
-                          return vec4(0.0);
-                      }
-                      vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), coords_geo.y, coords_geo.z);
-                      return texture2D(niri_tex, (niri_geo_to_tex * coord).st);
-                  }
-              "
-          }
-        }
-
         window-rule {
             min-height 200
             min-width 200

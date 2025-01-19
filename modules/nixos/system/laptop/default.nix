@@ -26,6 +26,7 @@ in {
       #     };
       #   };
       # };
+      thermald.enable = true;
       power-profiles-daemon.enable = false;
       throttled = {
         enable = true;
