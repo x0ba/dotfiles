@@ -26,8 +26,6 @@ in {
         themePackages = [pkgs.plymouth-blahaj-theme];
         theme = "blahaj";
       };
-      initrd.systemd.enable = true;
-      kernelParams = ["quiet"];
     };
   };
 }
