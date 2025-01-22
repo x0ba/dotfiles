@@ -20,7 +20,9 @@ in {
     security.pam.enableSudoTouchIdAuth = true;
     system = {
       defaults = {
-        loginwindow.LoginwindowText = "Live, laugh, love.";
+        trackpad = {
+          TrackpadThreeFingerDrag = true;
+        };
         dock = {
           show-recents = false;
           autohide = true;
