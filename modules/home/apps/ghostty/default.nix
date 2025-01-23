@@ -56,10 +56,13 @@ in {
           font-family = "BerkeleyMono Nerd Font";
           font-size = 13;
           theme = "light:catppuccin-latte,dark:catppuccin-mocha";
+          window-padding-x = "5";
+          window-padding-y = "5";
 
           inherit keybind;
         }
         (mkIf isLinux {
+          gtk-single-instance = true;
           adw-toolbar-style = "flat";
           gtk-tabs-location = "bottom";
           gtk-wide-tabs = false;
@@ -70,6 +73,7 @@ in {
         (mkIf isDarwin {
           macos-auto-secure-input = true;
           macos-icon-frame = "chrome";
+          keybind = "global:ctrl+grave_accent=toggle_quick_terminal";
         })
       ];
     };

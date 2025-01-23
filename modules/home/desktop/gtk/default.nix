@@ -15,8 +15,8 @@ in {
 
   config = mkIf cfg.enable {
     home.pointerCursor = {
-      name = "phinger-cursors-light";
-      package = pkgs.phinger-cursors;
+      name = "Yaru";
+      package = pkgs.yaru-theme;
       gtk.enable = true;
     };
 
@@ -38,12 +38,12 @@ in {
       enable = true;
       font.name = "Inter";
       iconTheme = {
-        name = "Qogir-dark";
-        package = pkgs.qogir-icon-theme;
+        name = "Yaru-dark";
+        package = pkgs.yaru-theme;
       };
       theme = {
-        name = "Orchis-Dark";
-        package = pkgs.orchis-theme;
+        name = "Yaru-dark";
+        package = pkgs.yaru-theme;
       };
     };
   };
