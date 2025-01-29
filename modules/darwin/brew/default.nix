@@ -43,6 +43,7 @@ in {
           (skipSha "autodesk-fusion")
           "jordanbaird-ice"
           "ghostty"
+          "hiddenbar"
           "firefox"
           "mullvad-browser"
           "brave-browser"

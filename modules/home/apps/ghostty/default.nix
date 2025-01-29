@@ -46,6 +46,7 @@ in {
   config = mkIf cfg.enable {
     programs.ghostty = {
       enable = true;
+      installBatSyntax = false;
       package =
         if isLinux
         then pkgs.ghostty
@@ -72,6 +73,7 @@ in {
         })
         (mkIf isDarwin {
           macos-auto-secure-input = true;
+          macos-icon = "custom-style";
           macos-icon-frame = "chrome";
           keybind = "global:ctrl+grave_accent=toggle_quick_terminal";
         })
