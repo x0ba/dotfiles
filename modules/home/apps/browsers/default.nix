@@ -1,6 +1,8 @@
 {
   lib,
   config,
+  inputs,
+  system,
   pkgs,
   namespace,
   ...
@@ -18,6 +20,7 @@ in {
     home.packages = lib.mkIf isLinux [
       pkgs.mullvad-browser
       pkgs.tor-browser
+      inputs.zen-browser.packages."${system}".default
     ];
     programs.chromium = {
       enable = isLinux;

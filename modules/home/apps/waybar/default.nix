@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   namespace,
   ...
 }: let
@@ -19,71 +20,102 @@ in {
         {
           layer = "top";
           position = "top";
-          mod = "dock";
-          exclusive = true;
-          passthrough = false;
-          gtk-layer-shell = true;
           height = 32;
+          spacing = 7;
+          fixed-center = false;
+          margin-left = null;
+          margin-top = null;
+          margin-bottom = null;
+          margin-right = null;
+          exclusive = true;
           modules-left = [
+            "custom/search"
             "niri/workspaces"
-          ];
-          modules-center = [
-            "niri/window"
-          ];
-          modules-right = [
-            "tray"
-            "network"
+            "backlight"
             "battery"
-            "clock"
+            "idle_inhibitor"
           ];
-          "niri/window" = {
-            format = "{}";
-          };
-          "niri/workspaces" = {
-            all-outputs = true;
-            disable-click = false;
-            format = "{icon}";
-            format-icons = {
-              "1" = "1";
-              "2" = "2";
-              "3" = "3";
-              "4" = "4";
-              "5" = "5";
-              "6" = "6";
-              "7" = "7";
-              "8" = "8";
-              "9" = "9";
-              "10" = "10";
-            };
-          };
-          tray = {
-            icon-size = 12;
+          modules-right = ["pulseaudio" "network" "clock"];
+
+          "custom/search" = {
+            format = "";
             tooltip = false;
-            spacing = 10;
+            on-click = "${lib.getExe pkgs.rofi-wayland} -show drun";
+          };
+
+          "custom/power" = {
+            tooltip = false;
+            # TODO
+            format = "󰐥";
           };
           clock = {
-            format = "{:%I:%M %p}";
+            format = "{:%H:%M}";
+            tooltip-format = ''
+              <big>{:%Y %B}</big>
+              <tt><small>{calendar}</small></tt>'';
           };
-          pulseaudio = {
-            format = "  {volume}%";
-            tooltip = false;
-            format-muted = "  N/A";
-            on-click = "pavucontrol &";
-            scroll-step = 5;
+
+          "idle_inhibitor" = {
+            format = "{icon}";
+            format-icons = {
+              activated = "";
+              deactivated = "󰔟";
+            };
           };
-          network = {
-            format-wifi = "  {essid} {signalStrength}%";
-            format-ethernet = "󰈀";
-            format-disconnected = "󰈂";
+
+          bluetooth = {
+            on-click = ''
+              bash -c 'bluetoothctl power $(bluetoothctl show | grep -q "Powered: yes" && echo off || echo on)'
+            '';
+          };
+          backlight = {
+            format = "{icon} {percent}%";
+            format-icons = ["" "" "" "" "" "" "" "" ""];
+          };
+          cpu = {
+            interval = 5;
+            format = "  {}%";
           };
           battery = {
             states = {
-              warning = 20;
+              warning = 30;
               critical = 15;
             };
-            format = "󰁹 {capacity}%";
+            format = "{icon} {capacity}%";
             format-charging = "󰂄 {capacity}%";
             format-plugged = "󰂄 {capacity}%";
+            format-alt = "{icon}";
+            format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          };
+          pulseaudio = {
+            scroll-step = 5;
+            tooltip = true;
+            on-click = "${pkgs.killall}/bin/killall pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol";
+            format = "{icon}  {volume}%";
+            format-muted = "󰝟 ";
+            format-bluetooth = "󰂯";
+            format-icons = {
+              default = ["" "" " "];
+            };
+          };
+          network = let
+            nm-editor = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+          in {
+            format-wifi = "󰤨 {essid}";
+            format-ethernet = "󰈀";
+            format-alt = "󱛇";
+            format-disconnected = "󰤭";
+            tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
+            on-click-right = "${nm-editor}";
+          };
+          "niri/workspaces" = {
+            on-click = "activate";
+            format = "{icon}";
+            active-only = false;
+            format-icons = {
+              default = "";
+              active = "";
+            };
           };
         }
       ];
@@ -91,182 +123,65 @@ in {
         # css
         ''
           * {
-            font-family: Symbols Nerd Font, Inter;
-            font-size: 15px;
-            border-radius: 17px;
-          }
-
-          #clock,
-          #custom-notification,
-          #custom-launcher,
-          #custom-power-menu,
-          /*#custom-colorpicker,*/
-          #custom-window,
-          #memory,
-          #disk,
-          #network,
-          #niri-window,
-          #battery,
-          #custom-spotify,
-          #pulseaudio,
-          #window,
-          #tray {
-            padding: 5 15px;
-            border-radius: 12px;
-            background: #1e1e2e;
-            color: #b4befe;
-            margin-top: 8px;
-            margin-bottom: 8px;
-            margin-right: 2px;
-            margin-left: 2px;
-            transition: all 0.3s ease;
+            /* `otf-font-awesome` is required to be installed for icons */
+            font-family: Material Design Icons, Inter, JetBrainsMono Nerd Font;
           }
 
           window#waybar {
-            background-color: rgba(0, 0, 0, 0.096);
-            border-radius: 17px;
-          }
-
-          window * {
-            background-color: transparent;
-            border-radius: 17px;
-          }
-
-          #workspaces button label {
-            color: #b4befe;
-          }
-
-          #workspaces button.active label {
-            color: #1e1e2e;
-            font-weight: bolder;
-          }
-
-          #workspaces button:hover {
-            box-shadow: #b4befe 0 0 0 1.5px;
             background-color: #1e1e2e;
-            min-width: 50px;
+            color: #cdd6f4;
+            opacity: 0.9;
+          }
+          window#waybar>box {
+           padding: 1px 5px;
           }
 
-          #workspaces {
-            background-color: transparent;
-            border-radius: 17px;
-            padding: 5 0px;
-            margin-top: 3px;
-            margin-bottom: 3px;
+          window#waybar.hidden {
+            opacity: 0.2;
+          }
+
+
+          .module{
+            padding: 0px 8px;
           }
 
           #workspaces button {
-            background-color: #1e1e2e;
-            border-radius: 12px;
-            margin-left: 10px;
-
-            transition: all 0.3s ease;
-          }
-
-          #workspaces button.active {
-            min-width: 50px;
-            box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
-            background-color: #f2cdcd;
-            background-size: 400% 400%;
-            transition: all 0.3s ease;
-            background: linear-gradient(
-              58deg,
-              #cba6f7,
-              #cba6f7,
-              #cba6f7,
-              #89b4fa,
-              #89b4fa,
-              #cba6f7,
-              #f38ba8
-            );
-            background-size: 300% 300%;
-          }
-
-          @keyframes colored-gradient {
-            0% {
-              background-position: 71% 0%;
-            }
-            50% {
-              background-position: 30% 100%;
-            }
-            100% {
-              background-position: 71% 0%;
-            }
-          }
-
-          #custom-power-menu {
-            margin-right: 10px;
-            padding-left: 12px;
-            padding-right: 15px;
-            padding-top: 3px;
-          }
-
-          #custom-spotify {
-            margin-left: 5px;
-            padding-left: 15px;
-            padding-right: 15px;
-            padding-top: 3px;
-            color: #b4befe;
-            background-color: #1e1e2e;
-            transition: all 0.3s ease;
-          }
-
-          #custom-spotify.playing {
-            color: rgb(180, 190, 254);
-            background: rgba(30, 30, 46, 0.6);
-            background: linear-gradient(
-              90deg,
-              #313244,
-              #1e1e2e,
-              #1e1e2e,
-              #1e1e2e,
-              #1e1e2e,
-              #313244
-            );
-            background-size: 400% 100%;
-            transition: all 0.3s ease;
-          }
-
-          @keyframes grey-gradient {
-            0% {
-              background-position: 100% 50%;
-            }
-            100% {
-              background-position: -33% 50%;
-            }
-          }
-
-          #tray menu {
-            background-color: #1e1e2e;
-            opacity: 0.8;
-          }
-
-          #pulseaudio.muted {
-            color: #f38ba8;
-            padding-right: 16px;
-          }
-
-          #custom-notification.collapsed,
-          #custom-notification.waiting_done {
-            min-width: 12px;
-            padding-right: 17px;
-          }
-
-          #custom-notification.waiting_start,
-          #custom-notification.expanded {
             background-color: transparent;
-            background: linear-gradient(
-              90deg,
-              #313244,
-              #1e1e2e,
-              #1e1e2e,
-              #1e1e2e,
-              #1e1e2e,
-              #313244
-            );
-            background-size: 400% 100%;
-            min-width: 500px;
-            border-radius: 17px;
+            padding-left: 6px;
+            margin: 0px 7px;
+            font-family: JetBrainsMono Nerd Font;
+            transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+            color: #cdd6f4;
+          }
+
+          #workspaces button.urgent {
+            color: #f38ba8;
+          }
+
+          #clock {
+            font-weight: 700;
+            font-size: 15px;
+            font-family: "Iosevka Term";
+          }
+
+          #battery.warning {
+            color: #f38ba8;
+            background-color: inherit;
+          }
+
+          #battery.critical:not(.charging) {
+            color: #eba0ac;
+            background-color: inherit;
+          }
+          tooltip {
+            font-family: 'Inter', sans-serif;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px;
+          }
+          tooltip label {
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
           }
         '';
     };

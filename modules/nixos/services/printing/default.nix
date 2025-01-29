@@ -1,6 +1,7 @@
 {
   options,
   config,
+  pkgs,
   lib,
   namespace,
   ...
@@ -16,7 +17,7 @@ in {
   config = mkIf cfg.enable {
     services.printing = {
       enable = true;
-      # drivers = [pkgs.hplip];
+      drivers = [pkgs.hplip];
     };
   };
 }

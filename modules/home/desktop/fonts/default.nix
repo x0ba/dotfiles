@@ -33,7 +33,7 @@ in {
     };
     home.activation.installCustomFonts =
       inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"] # bash
-      
+
       ''
         mkdir -p "${fontDirectory}"
         install -Dm644 ${fontPath}/* "${fontDirectory}"
@@ -47,7 +47,9 @@ in {
       nerd-fonts.monaspace
       nerd-fonts.symbols-only
       nerd-fonts.victor-mono
+      material-design-icons
       departure-mono
+      iosevka
       ibm-plex
       inter
       monaspace
