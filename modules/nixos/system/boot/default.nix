@@ -18,9 +18,11 @@ in {
     boot = {
       loader = {
         systemd-boot.enable = true;
-        systemd-boot.configurationLimit = 10;
         efi.canTouchEfiVariables = true;
       };
+
+      initrd.systemd.enable = true;
+
       plymouth = {
         enable = true;
         themePackages = [pkgs.plymouth-blahaj-theme];
