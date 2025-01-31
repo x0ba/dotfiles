@@ -22,7 +22,7 @@ in {
           position = "top";
           height = 32;
           spacing = 7;
-          fixed-center = false;
+          fixed-center = true;
           margin-left = null;
           margin-top = null;
           margin-bottom = null;
@@ -35,7 +35,10 @@ in {
             "battery"
             "idle_inhibitor"
           ];
-          modules-right = ["pulseaudio" "network" "clock"];
+          modules-center = [
+            "niri/window"
+          ];
+          modules-right = ["tray" "pulseaudio" "network" "clock"];
 
           "custom/search" = {
             format = "";
