@@ -29,11 +29,6 @@ in {
       };
     };
 
-    qt = {
-      enable = true;
-      platformTheme.name = "gtk3";
-    };
-
     gtk = {
       enable = true;
       font.name = "Inter";

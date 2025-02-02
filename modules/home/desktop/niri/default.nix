@@ -140,7 +140,7 @@ in {
         }
 
         spawn-at-startup "${lib.getExe pkgs.xwayland-satellite}"
-        spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../wallpapers/grape.png}"
+        spawn-at-startup "${lib.getExe pkgs.swaybg}" "-i" "${../wallpapers/space.png}"
         spawn-at-startup "${lib.getExe pkgs.waybar}"
         spawn-at-startup "${swayosd-server}"
         spawn-at-startup "sh" "-c" "${lib.getExe pkgs.swayidle} -w timeout 300 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep '${lib.getExe config.programs.swaylock.package} -f'"

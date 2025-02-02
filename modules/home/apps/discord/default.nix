@@ -15,6 +15,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = lib.mkIf isLinux [pkgs.vesktop];
+    home.packages = lib.mkIf isLinux [pkgs.discord pkgs.discover-overlay];
   };
 }
