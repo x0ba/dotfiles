@@ -46,12 +46,6 @@
       url = "github:catppuccin/vscode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "github:nix-community/impermanence";
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,13 +81,11 @@
 
       homes.modules = with inputs; [
         nix-index-database.hmModules.nix-index
-        inputs.sops-nix.homeManagerModules.sops
       ];
 
       systems.modules.nixos = with inputs; [
         nixos-cosmic.nixosModules.default
         home-manager.nixosModules.home-manager
-        sops-nix.nixosModules.sops
         disko.nixosModules.disko
       ];
 
