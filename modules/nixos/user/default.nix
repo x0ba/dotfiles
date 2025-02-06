@@ -24,7 +24,6 @@ in {
 
   config = {
     programs.zsh.enable = true;
-    sops.secrets.phantom-password.neededForUsers = lib.mkIf config.${namespace}.secrets.enable true;
     users.users.${cfg.name} = {
       isNormalUser = true;
 

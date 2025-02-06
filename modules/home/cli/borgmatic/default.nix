@@ -21,6 +21,5 @@ in {
       enable = true;
       frequency = "daily";
     };
-    sops.secrets."borgmatic-phantom".path = "${config.xdg.configHome}/borgmatic/config.yaml";
   };
 }
