@@ -15,17 +15,13 @@ in {
   };
 
   skibidi = {
-    secrets.enable = true;
-    impermanence.enable = true;
+    # secrets.enable = true;
     suites = {
       common.enable = true;
       desktop.enable = true;
     };
     apps.onepassword.enable = true;
     apps.openssh.enable = true;
-    services = {
-      tailscale.enable = true;
-    };
     user = {
       name = "daniel";
     };

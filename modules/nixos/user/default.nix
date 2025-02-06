@@ -33,7 +33,7 @@ in {
       home = "/home/${cfg.name}";
       group = "users";
 
-      hashedPasswordFile = lib.mkIf config.${namespace}.secrets.enable config.sops.secrets.phantom-password.path;
+      # hashedPasswordFile = lib.mkIf config.${namespace}.secrets.enable config.sops.secrets.phantom-password.path;
 
       shell = pkgs.zsh;
 

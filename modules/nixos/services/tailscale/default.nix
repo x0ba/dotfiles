@@ -15,7 +15,7 @@ in {
 
   config = mkIf cfg.enable {
     sops.secrets.tailscale-key = {};
-    environment.persistence."/persist/system".directories = ["/var/lib/tailscale"];
+    # environment.persistence."/persist/system".directories = ["/var/lib/tailscale"];
 
     services.tailscale = {
       enable = true;

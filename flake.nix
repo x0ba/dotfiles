@@ -86,7 +86,6 @@
       };
 
       homes.modules = with inputs; [
-        impermanence.homeManagerModules.impermanence
         nix-index-database.hmModules.nix-index
         inputs.sops-nix.homeManagerModules.sops
       ];
@@ -95,10 +94,6 @@
         nixos-cosmic.nixosModules.default
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
-        {
-          # Required for impermanence
-          fileSystems."/persist".neededForBoot = true;
-        }
         disko.nixosModules.disko
       ];
 
@@ -108,10 +103,6 @@
           inherit lib;
           device = "/dev/nvme0n1";
         })
-        {
-          # Required for impermanence
-          fileSystems."/persist".neededForBoot = true;
-        }
       ];
 
       outputs-builder = channels: let
