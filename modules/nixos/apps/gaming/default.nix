@@ -18,7 +18,7 @@ in {
     programs = {
       steam = {
         enable = true;
-        gamescopeSession.enable = true;
+        # gamescopeSession.enable = true;
         extraPackages = with pkgs; [
           corefonts
           mangohud

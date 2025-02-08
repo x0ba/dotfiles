@@ -64,7 +64,6 @@ in {
           # fix `nix profile` not being in PATH on macOS
           "${stateHome}/nix/profile/bin"
         ]);
-      preferXdgDirectories = true;
     };
 
     xdg = {
