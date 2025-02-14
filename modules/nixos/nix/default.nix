@@ -17,6 +17,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    system.rebuild.enableNg = true;
     nixpkgs = {
       config.allowUnfree = true;
     };
