@@ -68,13 +68,10 @@ in {
       # mounting
       gvfs.enable = true;
       udisks2.enable = true;
-      devmon.enable = true;
       # previews
       gnome.sushi.enable = true;
       # search metadata
       gnome.localsearch.enable = true;
-      # thumbnails
-      tumbler.enable = true;
     };
   };
 }
