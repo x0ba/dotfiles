@@ -44,6 +44,8 @@ in {
           "jordanbaird-ice"
           "ghostty"
           "hiddenbar"
+          "steam"
+          "cursor"
           "firefox"
           "mullvad-browser"
           "brave-browser"
