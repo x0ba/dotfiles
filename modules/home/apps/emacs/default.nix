@@ -52,9 +52,6 @@ in {
       sqlite
       # :lang cc
       clang-tools
-      # :lang beancount
-      beancount
-      fava
       # :lang nix
       age
     ];

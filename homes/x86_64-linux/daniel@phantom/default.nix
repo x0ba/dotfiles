@@ -34,7 +34,6 @@
       mpv.enable = true;
       xdg.enable = true;
       vscode.enable = true;
-      zed.enable = true;
     };
     user.enable = true;
     cli = {

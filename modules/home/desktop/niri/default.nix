@@ -147,7 +147,6 @@ in {
         spawn-at-startup "${pkgs.swaynotificationcenter}/bin/swaync"
         spawn-at-startup "${lib.getExe pkgs.wlsunset}" "-l" "37.4" "-L" "-121.9"
         spawn-at-startup "${lib.getExe pkgs.nextcloud-client}" "--background"
-        spawn-at-startup "${lib.getExe pkgs._1password-gui}" "--silent"
 
         binds {
             Mod+Shift+Slash { show-hotkey-overlay; }
