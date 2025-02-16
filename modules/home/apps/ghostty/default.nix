@@ -55,7 +55,7 @@ in {
         {
           # appearance
           font-family = "BerkeleyMono Nerd Font";
-          theme = "light:catppuccin-latte,dark:catppuccin-mocha";
+          theme = "catppuccin-mocha";
           window-padding-x = "5";
           window-padding-y = "5";
 
