@@ -38,7 +38,7 @@ in {
       };
 
       settings.background = {
-        path = ../../../home/desktop/wallpapers/blahaj-blue.png;
+        path = ../../../home/desktop/wallpapers/blahaj-colorful.png;
         fit = "Cover";
       };
     };

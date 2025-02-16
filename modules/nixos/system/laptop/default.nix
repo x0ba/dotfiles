@@ -1,6 +1,7 @@
 {
   options,
   config,
+  pkgs,
   lib,
   namespace,
   ...
@@ -14,6 +15,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      powertop
+      s-tui
+    ];
     # Enable auto-cpufreq (better than gnomes internal power manager)
     services = {
       # auto-cpufreq = {
