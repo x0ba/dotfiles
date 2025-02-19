@@ -69,6 +69,11 @@ in {
         dates = "weekly";
       };
 
+      optimise = {
+        automatic = true;
+        dates = ["00:30"];
+      };
+
       # flake-utils-plus
       generateRegistryFromInputs = true;
       generateNixPathFromInputs = true;

@@ -17,6 +17,9 @@ in {
     # manipulate the global /etc/zshenv for PATH, etc.
     programs.zsh.enable = true;
 
+    nix.enable = true;
+    ids.gids.nixbld = 350;
+
     security.pam.enableSudoTouchIdAuth = true;
     system = {
       defaults = {
@@ -25,7 +28,6 @@ in {
         };
         dock = {
           show-recents = false;
-          orientation = "left";
           autohide = true;
           autohide-delay = 0.0;
           autohide-time-modifier = 0.45;
@@ -57,8 +59,5 @@ in {
       };
       stateVersion = 4;
     };
-
-    # Auto upgrade nix package and the daemon service.
-    services.nix-daemon.enable = true;
   };
 }

@@ -48,6 +48,7 @@ in {
       nerd-fonts.symbols-only
       nerd-fonts.victor-mono
       material-design-icons
+      julia-mono
       departure-mono
       iosevka
       ibm-plex

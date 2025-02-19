@@ -34,7 +34,6 @@ in {
       casks =
         [
           "1password"
-          "aldente"
           "raycast"
           "discord"
           "iina"

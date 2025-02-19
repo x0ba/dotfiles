@@ -71,6 +71,15 @@ in {
         };
       };
 
+      optimise = {
+        automatic = true;
+        interval = {
+          Weekday = 0;
+          Hour = 0;
+          Minute = 0;
+        };
+      };
+
       # flake-utils-plus
       generateRegistryFromInputs = true;
       generateNixPathFromInputs = true;
