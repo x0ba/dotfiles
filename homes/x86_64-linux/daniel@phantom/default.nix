@@ -27,6 +27,7 @@
     apps = {
       browsers.enable = true;
       discord.enable = true;
+      syncthing.enable = true;
       emacs.enable = true;
       media.enable = true;
       ghostty.enable = true;
