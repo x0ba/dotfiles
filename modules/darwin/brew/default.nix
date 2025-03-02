@@ -41,8 +41,8 @@ in {
           (skipSha "autodesk-fusion")
           "ghostty"
           "hiddenbar"
-          "firefox"
           "syncthing"
+          "hazeover"
           "mullvad-browser"
           "brave-browser"
           "maccy"
