@@ -15,31 +15,15 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.regreet = {
+    services.gnome.gnome-keyring.enable = true;
+    services.greetd = {
       enable = true;
-
-      font = {
-        name = "Inter";
-        size = 16;
-        package = pkgs.inter;
-      };
-
-      cursorTheme = {
-        name = "Yaru";
-        package = pkgs.yaru-theme;
-      };
-      iconTheme = {
-        name = "Yaru-dark";
-        package = pkgs.yaru-theme;
-      };
-      theme = {
-        name = "Yaru-dark";
-        package = pkgs.yaru-theme;
-      };
-
-      settings.background = {
-        path = ../../../home/desktop/wallpapers/blahaj-colorful.png;
-        fit = "Cover";
+      settings = {
+        default_session.command = "${lib.getExe pkgs.greetd.tuigreet} -c niri-session";
+        initial_session = {
+          command = "niri-session";
+          user = "daniel";
+        };
       };
     };
 
@@ -51,6 +35,5 @@ in {
       polkit.enable = true;
       soteria.enable = true;
     };
-    services.gnome.gnome-keyring.enable = true;
   };
 }

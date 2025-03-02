@@ -50,8 +50,6 @@ in {
         nodePackages.alex
         nodePackages.bash-language-server
         nodePackages.dockerfile-language-server-nodejs
-        nodePackages.graphql
-        nodePackages.graphql-language-service-cli
         nodePackages.intelephense
         nodePackages.typescript
         nodePackages.typescript-language-server

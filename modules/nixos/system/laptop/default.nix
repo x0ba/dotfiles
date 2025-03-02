@@ -19,18 +19,7 @@ in {
       powertop
       s-tui
     ];
-    # Enable auto-cpufreq (better than gnomes internal power manager)
     services = {
-      # auto-cpufreq = {
-      #   enable = true;
-      #   settings = {
-      #     battery = {
-      #       enable_thresholds = true;
-      #       start_threshold = 70;
-      #       stop_threshold = 80;
-      #     };
-      #   };
-      # };
       thermald.enable = true;
       power-profiles-daemon.enable = false;
       throttled = {

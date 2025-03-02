@@ -18,7 +18,7 @@
     };
     apps = {
       ghostty.enable = true;
-      vscode.enable = true;
+      # vscode.enable = true;
       emacs.enable = true;
       zed.enable = true;
     };

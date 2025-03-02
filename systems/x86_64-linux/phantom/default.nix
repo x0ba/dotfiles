@@ -20,7 +20,6 @@ in {
       common.enable = true;
       desktop.enable = true;
     };
-    apps.gaming.enable = true;
     apps.onepassword.enable = true;
     apps.openssh.enable = true;
     user = {
