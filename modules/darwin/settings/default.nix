@@ -20,7 +20,7 @@ in {
     nix.enable = true;
     ids.gids.nixbld = 350;
 
-    security.pam.enableSudoTouchIdAuth = true;
+    security.pam.services.sudo_local.touchIdAuth = true;
     system = {
       defaults = {
         trackpad = {

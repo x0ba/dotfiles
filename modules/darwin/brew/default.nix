@@ -52,6 +52,9 @@ in {
           "macfuse"
           "netnewswire"
           "nextcloud"
+          "imageoptim"
+          (skipSha "onyx")
+          "grandperspective"
           "obsidian"
           "yubico-authenticator"
           (skipSha "spotify")
