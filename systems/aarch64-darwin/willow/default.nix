@@ -4,7 +4,7 @@
   ...
 }:
 with lib.${namespace}; {
-  networking.hostName = "exo";
+  networking.hostName = "willow";
   skibidi = {
     nix.enable = true;
     # aerospace.enable = true;

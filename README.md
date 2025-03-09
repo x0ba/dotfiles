@@ -91,5 +91,5 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 4. Install the flake
 
 ```bash
-nix run nix-darwin -- switch --flake .#exo
+nix run nix-darwin -- switch --flake .#willow
 ```
