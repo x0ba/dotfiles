@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     rnote
     nextcloud-client
+    solaar
     obsidian
     obs-studio
     transmission_4-gtk
