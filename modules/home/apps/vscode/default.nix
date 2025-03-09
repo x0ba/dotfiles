@@ -31,8 +31,6 @@ in {
       extensions =
         (with pkgs.vscode-extensions; [
           # patches
-          ms-python.python
-          ms-python.vscode-pylance
           # locked to the latest release
           ms-vscode-remote.remote-ssh
           ms-vscode.hexeditor
@@ -50,6 +48,8 @@ in {
           vadimcn.vscode-lldb
         ])
         ++ (with pkgs.vscode-marketplace; [
+          ms-python.python
+          ms-python.vscode-pylance
           # some default config patching to make these work without needing devShells all the time.
           # other extensions like Go/Rust are only really used with devShells,
           # nix & shell are universal enough for me to want them everywhere.
