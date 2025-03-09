@@ -1,11 +1,11 @@
 {inputs, ...}: let
-  user = "daniel@phantom";
+  user = "daniel@cedar";
 in {
   imports = [
     ./hardware.nix
   ];
 
-  networking.hostName = "phantom";
+  networking.hostName = "cedar";
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};

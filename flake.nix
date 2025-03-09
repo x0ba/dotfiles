@@ -89,7 +89,7 @@
         disko.nixosModules.disko
       ];
 
-      systems.hosts.phantom.modules = with inputs; [
+      systems.hosts.cedar.modules = with inputs; [
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
         (import ./disks/default.nix {
           inherit lib;
