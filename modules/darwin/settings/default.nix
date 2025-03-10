@@ -28,9 +28,10 @@ in {
         };
         dock = {
           show-recents = false;
-          autohide = true;
-          autohide-delay = 0.0;
-          autohide-time-modifier = 0.45;
+          position = "left";
+          autohide = false;
+          autohide-delay = 0.24;
+          autohide-time-modifier = 1.0;
           showhidden = true;
           tilesize = 48;
         };
