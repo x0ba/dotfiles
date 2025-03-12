@@ -43,6 +43,8 @@ in {
           "hiddenbar"
           "syncthing"
           "hazeover"
+          "leader-key"
+          "karabiner-elements"
           "mullvad-browser"
           "brave-browser"
           "maccy"

@@ -28,10 +28,7 @@ in {
         };
         dock = {
           show-recents = false;
-          position = "left";
-          autohide = false;
-          autohide-delay = 0.24;
-          autohide-time-modifier = 1.0;
+          autohide = true;
           showhidden = true;
           tilesize = 48;
         };
@@ -57,6 +54,10 @@ in {
           NSAutomaticQuoteSubstitutionEnabled = false;
           NSAutomaticSpellingCorrectionEnabled = false;
         };
+      };
+      keyboard = {
+        enableKeyMapping = true;
+        remapCapsLockToControl = true;
       };
       stateVersion = 4;
     };
