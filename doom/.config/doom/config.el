@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+(setq user-full-name "Daniel Xu"
+      user-mail-address "danielxu0307@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -22,8 +22,8 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "MonoLisa" :size 12)
-     doom-variable-pitch-font (font-spec :family "Atkinson Hyperlegible Next" :size 13)
-     doom-symbol-font (font-spec :family "Symbols Nerd Font" :size 12))
+      doom-variable-pitch-font (font-spec :family "Atkinson Hyperlegible Next" :size 13)
+      doom-symbol-font (font-spec :family "Symbols Nerd Font" :size 12))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -37,7 +37,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
