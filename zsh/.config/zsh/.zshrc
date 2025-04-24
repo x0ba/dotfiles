@@ -98,6 +98,7 @@ fi
 unalias zi
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
+eval "$(atuin init zsh)"
 
 # Use GPG agent for ssh
 export GPG_TTY="$(tty)"
