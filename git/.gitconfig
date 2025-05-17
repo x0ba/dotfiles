@@ -2,7 +2,7 @@
 	email = 64868985+x0ba@users.noreply.github.com
 	name = Daniel Xu
 [credential]
-	helper = osxkeychain
+	helper = cache --timeout 21600
 	helper = oauth
 [filter "lfs"]
 	required = true
