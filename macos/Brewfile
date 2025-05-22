@@ -1,99 +1,55 @@
 tap "d12frosted/emacs-plus"
 tap "homebrew/command-not-found"
-# Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
-# Modern, maintained replacement for ls
 brew "eza"
-# Simple, fast and user-friendly alternative to find
+brew "fastfetch"
 brew "fd"
-# Play, record, convert, and stream audio and video
 brew "ffmpeg"
-# Command-line fuzzy finder written in Go
 brew "fzf"
-# GitHub command-line tool
 brew "gh"
-# Distributed revision control system
 brew "git"
-# Git credential helper that authenticates in browser using OAuth
 brew "git-credential-oauth"
-# Git extension for versioning large files
 brew "git-lfs"
-# GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Add GitHub support to git on the command-line
 brew "hub"
-# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Platform built on V8 to build network applications
 brew "node"
-# Pinentry for GPG on Mac
 brew "pinentry-mac"
-# Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
-# Terminal multiplexer
 brew "tmux"
-# Upgrade all the things
 brew "topgrade"
-# Internet file retriever
+brew "urlscan"
 brew "wget"
-# Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
-# Feature-rich command-line audio/video downloader
 brew "yt-dlp"
-# Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
-# Shell extension to navigate your filesystem faster
 brew "zoxide"
-# GNU Emacs text editor
 brew "d12frosted/emacs-plus/emacs-plus@30"
-# Memory training application
 cask "anki"
-# Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
-# Web browser focusing on privacy
 cask "brave-browser"
-# E-books management software
 cask "calibre"
-# Voice and text chat software
 cask "discord"
-# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-# Free and open-source media player
 cask "iina"
-# Menu bar manager
 cask "jordanbaird-ice"
-# Customise mouse behavior
 cask "linearmouse"
-# Web browser focused on privacy and on minimizing tracking and fingerprinting
 cask "mullvad-browser"
-# App to write, plan, collaborate, and get organised
 cask "notion"
-# Calendar for professionals and teams
 cask "notion-calendar"
-# Calculator and converter application
 cask "numi"
-# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Verify system files structure, run miscellaneous maintenance and more
+cask "ollama"
 cask "onyx"
-# Peer to peer Bitorrent client
 cask "qbittorrent"
-# Control your tools with a few keystrokes
 cask "raycast"
-# Music streaming service
 cask "spotify"
-# Real time file synchronisation software
 cask "syncthing"
-# Web browser focusing on security
 cask "tor-browser"
-# Open-source code editor
 cask "visual-studio-code"
-# Gecko based web browser
 cask "zen"
-vscode "catppuccin.catppuccin-vsc"
-vscode "catppuccin.catppuccin-vsc-icons"
+vscode "beardedbear.beardedicons"
 vscode "dbaeumer.vscode-eslint"
 vscode "docker.docker"
 vscode "esbenp.prettier-vscode"
@@ -111,6 +67,6 @@ vscode "ms-vscode.cpptools"
 vscode "ms-vscode.cpptools-extension-pack"
 vscode "ms-vscode.cpptools-themes"
 vscode "ms-vscode.remote-explorer"
+vscode "qufiwefefwoyn.kanagawa"
 vscode "rust-lang.rust-analyzer"
-vscode "sigbots.pros"
 vscode "vscodevim.vim"
